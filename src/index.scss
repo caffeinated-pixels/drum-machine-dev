@@ -1,3 +1,20 @@
+// SCSS VARIABLES
+$dark-grey: #1f1f1f;
+$box-shadow: 2px 2px 4px $dark-grey;
+$text-background: #f0fbdb;
+$border-default: 1px solid black;
+
+// SCSS FUNCTIONS
+@function calculateRem($size, $base: 16px) {
+  $remSize: ($size / $base);
+  @return #{$remSize}rem;
+}
+
+// SCSS MIXINS
+@mixin text-shadow($x: 1px, $y: 1px, $blur: 2px, $color: black) {
+  text-shadow: $x $y $blur $color;
+}
+
 /***GENERAL STYLING***/
 * {
   box-sizing: border-box;
@@ -19,10 +36,10 @@ a {
   color: #3399ff;
   font-weight: 600;
   text-decoration: none;
-}
-
-a:hover, a:focus {
-  color: #b45922;
+  &:hover,
+  &:focus {
+    color: #b45922;
+  }
 }
 
 .text-center {
@@ -42,34 +59,35 @@ a:hover, a:focus {
   background: linear-gradient(to right, #5d5d5d, #292929);
   height: 475px;
   width: 750px;
-  border: 1px solid black;
+  border: $border-default;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 2px 2px 4px #1f1f1f;
+  box-shadow: $box-shadow;
 }
 
 .top-bar {
-  box-shadow: 0 2px 5px #1f1f1f;
+  box-shadow: 0 2px 5px $dark-grey;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 1.625rem;
+  font-size: calculateRem(26px);
   font-family: "Goldman", cursive;
   padding: 5px 10px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   z-index: 10;
-  text-shadow: 2px 2px 2px black;
+  @include text-shadow($x: 2px, $y: 2px);
 }
 
-.thin, .model {
+.thin {
   font-weight: 400;
 }
 
 .model {
-  font-size: 1.125rem;
+  @extend .thin;
+  font-size: calculateRem(18px);
   font-style: italic;
 }
 
@@ -79,7 +97,7 @@ a:hover, a:focus {
   border-bottom: 3px solid black;
   height: 30px;
   padding: 4px;
-  font-size: 0.8125rem;
+  font-size: calculateRem(13px);
 }
 
 .logo {
@@ -109,23 +127,22 @@ button {
   padding: 5px;
   margin: 0;
   text-decoration: none;
-  box-shadow: 2px 2px 4px #1f1f1f;
+  box-shadow: $box-shadow;
   background: #0069ed;
   color: #ffffff;
   font-family: inherit;
-  font-size: 0.9375rem;
-  text-shadow: 1px 1px 2px black;
+  font-size: calculateRem(15px);
+  @include text-shadow();
   line-height: 1;
   cursor: pointer;
   text-align: center;
-}
-
-button:hover, button:focus {
-  outline-style: none;
-}
-
-button:active {
-  transform: scale(0.95);
+  &:hover,
+  &:focus {
+    outline-style: none;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .bank-btn {
@@ -154,34 +171,44 @@ button:active {
   justify-content: flex-end;
 }
 
-.powbtn-on, .powbtn-off {
-  font-size: 0.875rem;
+.powbtn-on {
+  font-size: calculateRem(14px);
   --circle: 75px;
   height: var(--circle);
   width: var(--circle);
   border-radius: 100%;
-  background: #47dc01;
-  background: radial-gradient(circle, #47dc01 25%, #74ea27 55%, #bbff62 100%);
-}
-
-.powbtn-on:hover, .powbtn-off:hover {
-  transform: scale(1.02);
-}
-
-.powbtn-on:active, .powbtn-off:active {
-  transform: scale(0.95);
-  -webkit-tap-highlight-color: transparent;
+  background: rgb(71, 220, 1);
+  background: radial-gradient(
+    circle,
+    rgba(71, 220, 1, 1) 25%,
+    rgba(116, 234, 39, 1) 55%,
+    rgba(187, 255, 98, 1) 100%
+  );
+  &:hover {
+    transform: scale(1.02);
+  }
+  &:active {
+    transform: scale(0.95);
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 .powbtn-off {
-  background: #dc0101;
-  background: radial-gradient(circle, #dc0101 25%, #ea4427 55%, #ff8462 100%);
+  @extend .powbtn-on;
+  background: rgb(220, 1, 1);
+  background: radial-gradient(
+    circle,
+    rgba(220, 1, 1, 1) 25%,
+    rgba(234, 68, 39, 1) 55%,
+    rgba(255, 132, 98, 1) 100%
+  );
 }
 
 .volume-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  // background-color: lightyellow;
 }
 
 #vol-up {
@@ -192,7 +219,7 @@ button:active {
   background-color: lightgrey;
   font-family: "Press Start 2P", serif;
   line-height: 1;
-  font-size: 0.78125rem;
+  font-size: calculateRem(12.5px);
   padding: 8px;
   margin: 10px auto;
   width: 345px;
@@ -201,13 +228,11 @@ button:active {
   border-radius: 2px;
   box-shadow: 0 0 0 1pt white;
   overflow: hidden;
-  white-space: nowrap;
-  /* prevents pushing other text off display */
-}
-
-#display p {
-  padding: 4px;
-  text-shadow: 1px 1px 1px grey;
+  white-space: nowrap; /* prevents pushing other text off display */
+  p {
+    padding: 4px;
+    @include text-shadow($blur: 1px, $color: grey);
+  }
 }
 
 /*** RIGHT PANEL STYLING ***/
@@ -223,22 +248,21 @@ button:active {
 
 .drum-pad {
   border-radius: 7px;
-  box-shadow: 2px 2px 4px #1f1f1f;
+  box-shadow: $box-shadow;
   color: white;
   cursor: pointer;
   font-family: "Goldman", cursive;
-  font-size: 1.875rem;
-  text-shadow: 1px 1px 2px black;
+  font-size: calculateRem(30px);
+  @include text-shadow();
   --padsize: 100px;
   height: var(--padsize);
   width: var(--padsize);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.drum-pad:hover {
-  transform: scale(1.02);
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 @-webkit-keyframes padClick {
@@ -261,103 +285,145 @@ button:active {
 }
 
 .padQ {
-  background: red;
-  background: radial-gradient(circle, #ff8000 25%, red 100%);
+  background: rgba(255, 0, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 128, 0, 1) 25%,
+    rgba(255, 0, 0, 1) 100%
+  );
 }
-
 .padW {
-  background: #ff8000;
-  background: radial-gradient(circle, yellow 25%, #ff8000 100%);
+  background: rgba(255, 128, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 0, 1) 25%,
+    rgba(255, 128, 0, 1) 100%
+  );
 }
-
 .padE {
-  background: yellow;
-  background: radial-gradient(circle, #80ff00 25%, yellow 100%);
+  background: rgb(255, 255, 0);
+  background: radial-gradient(
+    circle,
+    rgba(128, 255, 0, 1) 25%,
+    rgba(255, 255, 0, 1) 100%
+  );
 }
-
 .padA {
-  background: #80ff00;
-  background: radial-gradient(circle, #00ff80 25%, #80ff00 100%);
+  background: rgba(128, 255, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 128, 1) 25%,
+    rgba(128, 255, 0, 1) 100%
+  );
 }
-
 .padS {
-  background: #00ff80;
-  background: radial-gradient(circle, #00ff80 25%, cyan 100%);
+  background: rgba(0, 255, 128, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 128, 1) 25%,
+    rgba(0, 255, 255, 1) 100%
+  );
 }
-
 .padD {
-  background: #00ff80;
-  background: radial-gradient(circle, #0080ff 0%, #00ff80 100%);
+  background: rgba(0, 255, 128, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 128, 255, 1) 0%,
+    rgba(0, 255, 128, 1) 100%
+  );
 }
-
 .padZ {
-  background: #0080ff;
-  background: radial-gradient(circle, #8000ff 25%, #0080ff 100%);
+  background: rgba(0, 128, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(128, 0, 255, 1) 25%,
+    rgba(0, 128, 255, 1) 100%
+  );
 }
-
 .padX {
   background: #8000ff;
   background: radial-gradient(#8000ff, #ff00ff);
-  background: #8000ff;
-  background: radial-gradient(circle, magenta 0%, #8000ff 100%);
+  background: rgba(128, 0, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 255, 1) 0%,
+    rgba(128, 0, 255, 1) 100%
+  );
 }
-
 .padC {
-  background: magenta;
-  background: radial-gradient(circle, red 0%, magenta 100%);
+  background: rgba(255, 0, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 0, 255, 1) 100%
+  );
 }
 
 /*** MEDIA BREAKS ***/
 @media (max-width: 749px) {
+  $basefont: 14px; // new base font-size for calculating rems
+
   html {
-    font-size: 0.875rem;
+    font-size: calculateRem($basefont);
   }
+
   #drum-machine {
     width: 345px;
     height: 580px;
   }
+
   .top-bar {
-    font-size: 1.5rem;
+    font-size: calculateRem(24px);
     line-height: 1;
     padding: 3px 10px;
   }
+
   .model {
-    font-size: 1rem;
+    font-size: calculateRem(16px);
   }
+
   #display {
     height: 90px;
     width: 300px;
   }
+
   .main-box {
     flex-direction: column;
   }
+
   .btn-container {
     justify-content: space-around;
     padding: 0;
     margin-top: 2px;
   }
+
   .bank-btn {
     height: 25px;
     width: 75px;
   }
+
   .otherbtn-container {
     justify-content: space-around;
     height: auto;
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
   #vol-up {
     margin-bottom: 10px;
   }
-  .powbtn-on, .powbtn-off {
+
+  .powbtn-on {
     --circle: 60px;
   }
+
   .right-panel {
     margin: 0 35px 5px;
     row-gap: 10px;
     flex-basis: 0;
     height: auto;
   }
+
   .drum-pad {
     --padsize: 80px;
   }
