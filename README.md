@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Drum machine (dev server)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based app for the [Build a Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) freeCodeCamp project.
 
-## Available Scripts
+## Pad animations
 
-In the project directory, you can run:
+Creating simple animations in css is relatively straight-foward. And we can trigger these animations by adding a class to the element. However, we then need to remove this class once the animation is finished so that it can play again if the same key/button is pressed.
 
-### `npm start`
+A simple way to remove the class is: `document.getElementById(event.target.id).classList.remove('pad-anim')`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+However, you need to wait for the animation to finish first before removing!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Some solutions that worked:
 
-### `npm test`
+- using the setTimeout() so that the class is removed after a set period
+- using another DOM event listener, eg `document.addEventListener('animationend', event => document.getElementById(event.target.id).classList.remove('pad-anim') )`
+- using the React `onAnimationEnd={}` attribute, which works in a similar fashion to the above example and creates an event object that can be passed into a function
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What to use
 
-### `npm run build`
+- React
+- Sass
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### To-do list
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- make it look nice!
+- responsive layout
+- use global state through Redux or Context API???
+- convert to hooks (setState, etc)
+- add footer
+- tidy up code!!!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Styling to-do list
 
-### `npm run eject`
+- left-panel buttons
+- rainbow color progression on pads
+- textured background
+- border glow or color change on drumpad click/keypress
+- 80s laser grid background???
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Possible drum sounds
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- kick/bass drum
+- snare
+- toms (small, medium, floor)
+- hi-hat
+- cymbols (crash, ride)
+- clave
+- cow bell
+- hand clap
