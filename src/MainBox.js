@@ -1,33 +1,9 @@
 import React from 'react'
 import LeftPanel from './LeftPanel'
+import RightPanel from './RightPanel'
 import synthwave from './arrays/synthwave'
 import acoustic from './arrays/acoustic'
 import chaosEngine from './arrays/chaos-engine'
-
-function RightPanel(props) {
-  const drumpads = props.soundBank.map((entry, i) => {
-    return (
-      <div
-        key={i}
-        id={entry.name}
-        className={`drum-pad ${entry.pad} `}
-        onClick={props.handleClick}
-      >
-        <audio
-          id={entry.trigger}
-          className="clip"
-          src={entry.src}
-          preload="auto"
-        >
-          {' '}
-        </audio>
-        {entry.trigger}
-      </div>
-    )
-  })
-
-  return <div className="right-panel no-select">{drumpads}</div>
-}
 
 // moved state & playSample up so both LP & RP have access via props
 class MainBox extends React.Component {
