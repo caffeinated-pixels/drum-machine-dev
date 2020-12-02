@@ -13,14 +13,14 @@ function MainBox() {
   const [power, setPower] = useState(true)
   const [volume, setVolume] = useState(1)
 
-  // useEffect() is a hook that can replace lifecycle methods such as componentDidMount() & componentWillUnmount()
+  // useEffect() is a hook that can replace lifecycle methods such as componentDidMount & componentWillUnmount
   useEffect(() => {
     // add event listener for drumpad keypresses
     document.addEventListener('keydown', handleKeyPress)
     // add event listener for removing css animation class
     document.addEventListener('animationend', removeAnimClass)
 
-    // need to remove event Listeners to prevent issues
+    // need to remove event Listeners to prevent issues (similar to componentWillUnmount)
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
       document.removeEventListener('animationend', removeAnimClass)
