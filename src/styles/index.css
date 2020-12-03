@@ -138,20 +138,21 @@ button:active {
   width: 345px;
   height: 99px;
   margin: 10px auto;
-  padding: 10px;
+  padding: 8px;
   background-color: lightgrey;
   border: 10px solid black;
   border-radius: 2px;
   box-shadow: 0 0 0 1pt white;
   font-family: "Press Start 2P", serif;
   font-size: 0.78125rem;
-  line-height: 1.5;
+  line-height: 1;
   overflow: hidden;
   white-space: nowrap;
   /* prevents pushing other text off display */
 }
 
 #display p {
+  padding: 4px;
   text-shadow: 1px 1px 1px grey;
 }
 

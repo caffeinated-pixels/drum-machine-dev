@@ -112,7 +112,6 @@ button { /* general buttons styling to provide consistency between browsers */
 
   color: white;
   font-size: calculateRem(26px);
-  // font-family: "Goldman", cursive;
   @include text-shadow($x: 2px, $y: 2px);
 
   @extend %bar-border;
@@ -166,7 +165,7 @@ button { /* general buttons styling to provide consistency between browsers */
   width: 345px;
   height: 99px;
   margin: 10px auto;
-  padding: 10px;
+  padding: 8px;
 
   background-color: lightgrey;
   border: 10px solid black;
@@ -175,12 +174,12 @@ button { /* general buttons styling to provide consistency between browsers */
 
   font-family: "Press Start 2P", serif;
   font-size: calculateRem(12.5px);
-  line-height: 1.5;
+  line-height: 1;
   overflow: hidden;
   white-space: nowrap; /* prevents pushing other text off display */
 
   p {
-    // margin: 4px;
+    padding: 4px;
     @include text-shadow($blur: 1px, $color: grey);
   }
 }
