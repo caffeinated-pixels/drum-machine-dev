@@ -15,7 +15,13 @@ $border-default: 1px solid black;
   text-shadow: $x $y $blur $color;
 }
 
-/***GENERAL STYLING***/
+// SCSS PLACEHOLDERS
+%bar-border {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+/*** START GENERAL STYLING***/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,13 +29,14 @@ $border-default: 1px solid black;
 }
 
 body {
-  font-family: "Goldman", cursive;
-  font-weight: 700;
-  background-color: lightyellow;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: lightyellow;
+
+  font-family: "Goldman", cursive;
+  font-weight: 700;
 }
 
 a {
@@ -42,43 +49,74 @@ a {
   }
 }
 
+
+button { /* general buttons styling to provide consistency between browsers */
+  display: inline-block;
+  margin: 0;
+  padding: 5px;
+
+  border: none;
+  box-shadow: $box-shadow;
+  background: #0069ed;
+
+  color: #ffffff;
+  font-family: inherit;
+  font-size: calculateRem(15px);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  @include text-shadow();
+
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    outline-style: none;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
 .text-center {
   text-align: center;
 }
 
-.no-select {
-  /* make text labels non-selectable */
+.no-select { /* make text labels non-selectable */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
+/*** END GENERAL STYLING***/
 
+/*** START OUTER CONTAINERS SYTLING ***/
 #drum-machine {
-  background: linear-gradient(to right, #5d5d5d, #292929);
-  height: 475px;
-  width: 750px;
-  border: $border-default;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 475px;
+  width: 750px;
+  background: linear-gradient(to right, #5d5d5d, #292929);
+  border: $border-default;
   box-shadow: $box-shadow;
 }
 
+/*** start top bar styling ***/
 .top-bar {
-  box-shadow: 0 2px 5px $dark-grey;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 5px 10px;
+  z-index: 10;
+
+  color: white;
   font-size: calculateRem(26px);
   font-family: "Goldman", cursive;
-  padding: 5px 10px;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  z-index: 10;
   @include text-shadow($x: 2px, $y: 2px);
+
+  @extend %bar-border;
+  box-shadow: 0 2px 5px $dark-grey;
 }
 
 .thin {
@@ -91,23 +129,31 @@ a {
   font-style: italic;
 }
 
-.bottom-bar {
-  color: white;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  height: 30px;
-  padding: 4px;
-  font-size: calculateRem(13px);
-}
-
 .logo {
   border-radius: 2px;
 }
+/*** end top bar styling ***/
 
+/*** start main box (center) styling ***/
 .main-box {
   display: flex;
 }
+/*** end main box styling ***/
 
+/* start bottom bar styling */
+.bottom-bar {
+  height: 30px;
+  padding: 4px;
+
+  color: white;
+  font-size: calculateRem(13px);
+
+  @extend %bar-border;
+}
+/* end bottom bar styling */
+/*** END OUTER CONTAINERS SYTLING ***/
+
+/*** START LEFT PANEL SYTLING ***/
 .left-panel {
   display: flex;
   flex-direction: column;
@@ -115,34 +161,36 @@ a {
   flex: auto;
 }
 
+/* start display styling */
+#display {
+  width: 345px;
+  height: 99px;
+  margin: 10px auto;
+  padding: 10px;
+
+  background-color: lightgrey;
+  border: 10px solid black;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1pt white;
+
+  font-family: "Press Start 2P", serif;
+  font-size: calculateRem(12.5px);
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: nowrap; /* prevents pushing other text off display */
+
+  p {
+    // margin: 4px;
+    @include text-shadow($blur: 1px, $color: grey);
+  }
+}
+/* end display styling */
+
+/*** start bank button styling ***/
 .btn-container {
   display: flex;
   justify-content: space-between;
   margin: 0 20px;
-}
-
-button {
-  display: inline-block;
-  border: none;
-  padding: 5px;
-  margin: 0;
-  text-decoration: none;
-  box-shadow: $box-shadow;
-  background: #0069ed;
-  color: #ffffff;
-  font-family: inherit;
-  font-size: calculateRem(15px);
-  @include text-shadow();
-  line-height: 1;
-  cursor: pointer;
-  text-align: center;
-  &:hover,
-  &:focus {
-    outline-style: none;
-  }
-  &:active {
-    transform: scale(0.95);
-  }
 }
 
 .bank-btn {
@@ -157,12 +205,15 @@ button {
 .bank-btn:hover {
   background: #0053ba;
 }
+/*** end bank button styling ***/
 
+/*** start pwr & vol btn styling ***/
 .otherbtn-container {
-  height: 150px;
-  margin: 20px;
   display: flex;
   justify-content: space-between;
+  height: 150px;
+  margin: 20px;
+
 }
 
 .power-container {
@@ -172,11 +223,11 @@ button {
 }
 
 .powbtn-on {
-  font-size: calculateRem(14px);
   --circle: 75px;
   height: var(--circle);
   width: var(--circle);
   border-radius: 100%;
+  font-size: calculateRem(14px);
   background: rgb(71, 220, 1);
   background: radial-gradient(
     circle,
@@ -208,34 +259,15 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  // background-color: lightyellow;
 }
 
 #vol-up {
   margin-bottom: 15px;
 }
+/*** end pwr & vol btn styling ***/
+/*** END LEFT PANEL SYTLING ***/
 
-#display {
-  background-color: lightgrey;
-  font-family: "Press Start 2P", serif;
-  line-height: 1;
-  font-size: calculateRem(12.5px);
-  padding: 8px;
-  margin: 10px auto;
-  width: 345px;
-  height: 99px;
-  border: 10px solid black;
-  border-radius: 2px;
-  box-shadow: 0 0 0 1pt white;
-  overflow: hidden;
-  white-space: nowrap; /* prevents pushing other text off display */
-  p {
-    padding: 4px;
-    @include text-shadow($blur: 1px, $color: grey);
-  }
-}
-
-/*** RIGHT PANEL STYLING ***/
+/*** START RIGHT PANEL STYLING ***/
 .right-panel {
   display: grid;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
@@ -247,24 +279,27 @@ button {
 }
 
 .drum-pad {
-  border-radius: 7px;
-  box-shadow: $box-shadow;
-  color: white;
-  cursor: pointer;
-  font-family: "Goldman", cursive;
-  font-size: calculateRem(30px);
-  @include text-shadow();
-  --padsize: 100px;
-  height: var(--padsize);
-  width: var(--padsize);
   display: flex;
   justify-content: center;
   align-items: center;
+  --padsize: 100px;
+  height: var(--padsize);
+  width: var(--padsize);
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: $box-shadow;
+
+  color: white;
+  font-family: "Goldman", cursive;
+  font-size: calculateRem(30px);
+  @include text-shadow();
+
   &:hover {
     transform: scale(1.02);
   }
 }
 
+/*** start drum pad animations ***/
 @-webkit-keyframes padClick {
   100% {
     border: 4px solid orange;
@@ -283,7 +318,9 @@ button {
   -webkit-animation: padClick 0.3s linear;
   animation: padClick 0.3s linear;
 }
+/*** end drum pad animations ***/
 
+/*** start pad colors ***/
 .padQ {
   background: rgba(255, 0, 0, 1);
   background: radial-gradient(
@@ -358,13 +395,15 @@ button {
     rgba(255, 0, 255, 1) 100%
   );
 }
+/*** end pad colors ***/
+/*** END RIGHT PANEL STYLING ***/
 
 /*** MEDIA BREAKS ***/
 @media (max-width: 749px) {
   $basefont: 14px; // new base font-size for calculating rems
 
   html {
-    font-size: calculateRem($basefont);
+    font-size: calculateRem($basefont); /* set root font-size */
   }
 
   #drum-machine {
@@ -382,13 +421,14 @@ button {
     font-size: calculateRem(16px);
   }
 
+  .main-box {
+    flex-direction: column;
+  }
+
+  /*** start left panel changes ***/
   #display {
     height: 90px;
     width: 300px;
-  }
-
-  .main-box {
-    flex-direction: column;
   }
 
   .btn-container {
@@ -416,7 +456,8 @@ button {
   .powbtn-on {
     --circle: 60px;
   }
-
+  /*** end left panel changes ***/
+  /*** start right panel changes ***/
   .right-panel {
     margin: 0 35px 5px;
     row-gap: 10px;
@@ -427,4 +468,5 @@ button {
   .drum-pad {
     --padsize: 80px;
   }
+  /*** end right panel changes ***/
 }
