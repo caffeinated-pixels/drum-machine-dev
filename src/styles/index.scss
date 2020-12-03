@@ -35,7 +35,7 @@ body {
   height: 100vh;
   background-color: lightyellow;
 
-  font-family: "Goldman", cursive;
+  font-family: "Goldman", sans-serif;
   font-weight: 700;
 }
 
@@ -112,7 +112,7 @@ button { /* general buttons styling to provide consistency between browsers */
 
   color: white;
   font-size: calculateRem(26px);
-  font-family: "Goldman", cursive;
+  // font-family: "Goldman", cursive;
   @include text-shadow($x: 2px, $y: 2px);
 
   @extend %bar-border;

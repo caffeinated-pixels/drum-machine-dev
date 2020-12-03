@@ -16,7 +16,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: lightyellow;
-  font-family: "Goldman", cursive;
+  font-family: "Goldman", sans-serif;
   font-weight: 700;
 }
 
@@ -91,7 +91,6 @@ button:active {
   z-index: 10;
   color: white;
   font-size: 1.625rem;
-  font-family: "Goldman", cursive;
   text-shadow: 2px 2px 2px black;
   box-shadow: 0 2px 5px #1f1f1f;
 }
