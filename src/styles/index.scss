@@ -412,13 +412,13 @@ button { /* general buttons styling to provide consistency between browsers */
   }
 
   .top-bar {
-    font-size: calculateRem(24px);
+    font-size: calculateRem(21px, $basefont);
     line-height: 1;
     padding: 3px 10px;
   }
 
   .model {
-    font-size: calculateRem(16px);
+    font-size: calculateRem(14px, $basefont);
   }
 
   .main-box {
