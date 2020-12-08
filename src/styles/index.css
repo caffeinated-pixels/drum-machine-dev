@@ -40,7 +40,7 @@ button {
   background: #0069ed;
   color: #ffffff;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: calc(15 / 16 * 1rem);
   line-height: 1;
   text-align: center;
   text-decoration: none;

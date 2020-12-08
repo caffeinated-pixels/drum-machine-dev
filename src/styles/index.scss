@@ -61,7 +61,8 @@ button { /* general buttons styling to provide consistency between browsers */
 
   color: #ffffff;
   font-family: inherit;
-  font-size: calculateRem(15px);
+  // font-size: calculateRem(15px);
+  font-size: calc(15 / 16 * 1rem);
   line-height: 1;
   text-align: center;
   text-decoration: none;
