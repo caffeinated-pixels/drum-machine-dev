@@ -331,7 +331,7 @@ button:active {
 /*** end pad colors ***/
 /*** END RIGHT PANEL STYLING ***/
 /*** MEDIA BREAKS ***/
-@media (max-width: 749px) {
+@media (max-width: 46.8125em) {
   html {
     font-size: 0.875rem;
     /* set root font-size */
