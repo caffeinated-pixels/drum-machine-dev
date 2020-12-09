@@ -16,35 +16,11 @@ Some solutions that worked:
 - using another DOM event listener, eg `document.addEventListener('animationend', event => document.getElementById(event.target.id).classList.remove('pad-anim') )`
 - using the React `onAnimationEnd={}` attribute, which works in a similar fashion to the above example and creates an event object that can be passed into a function
 
-### What to use
-
-- React
-- Sass
-
 ### To-do list
 
-- make it look nice!
-- responsive layout
 - use global state through Redux or Context API???
-- convert to hooks (setState, etc)
-- add footer
 - tidy up code!!!
 
 ### Styling to-do list
 
-- left-panel buttons
-- rainbow color progression on pads
-- textured background
-- border glow or color change on drumpad click/keypress
 - 80s laser grid background???
-
-### Possible drum sounds
-
-- kick/bass drum
-- snare
-- toms (small, medium, floor)
-- hi-hat
-- cymbols (crash, ride)
-- clave
-- cow bell
-- hand clap
