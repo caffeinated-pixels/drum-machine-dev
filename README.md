@@ -20,7 +20,4 @@ Some solutions that worked:
 
 - use global state through Redux or Context API???
 - tidy up code!!!
-
-### Styling to-do list
-
-- 80s laser grid background???
+- host files locally
