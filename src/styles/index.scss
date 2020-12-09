@@ -42,6 +42,15 @@ body {
 
   font-family: 'Goldman', sans-serif;
   font-weight: 700;
+
+  background: {
+    color: lightyellow;
+    image: url("https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/sun-retrogrid_1920.jpg");
+    repeat: no-repeat;
+    position: center;
+    size: cover;
+  }
+
 }
 
 a {
