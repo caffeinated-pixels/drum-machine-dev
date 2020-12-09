@@ -173,6 +173,10 @@ button:active {
   text-shadow: 1px 1px 1px grey;
 }
 
+.hidden > p {
+  visibility: hidden;
+}
+
 /* end display styling */
 /*** start bank button styling ***/
 .btn-container {

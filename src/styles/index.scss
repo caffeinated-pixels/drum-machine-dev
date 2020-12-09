@@ -208,6 +208,10 @@ button {
     @include text-shadow($blur: 1px, $color: grey);
   }
 }
+
+.hidden > p {
+  visibility: hidden;
+}
 /* end display styling */
 
 /*** start bank button styling ***/

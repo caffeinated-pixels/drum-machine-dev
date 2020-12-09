@@ -1,23 +1,15 @@
 import React from 'react'
 
 function Display(props) {
-  if (props.power) {
-    return (
-      <div className="display-container">
-        <div id="display" className="no-select">
-          <p>Bank: {props.bankName}</p>
-          <p>Sample: {props.display}</p>
-          <p>Volume: {props.volume}</p>
-        </div>
+  return (
+    <div className="display-container">
+      <div id="display" className={props.power ? 'no-select' : 'hidden'}>
+        <p>Bank: {props.bankName}</p>
+        <p>Sample: {props.display}</p>
+        <p>Volume: {props.volume}</p>
       </div>
-    )
-  } else {
-    return (
-      <div className="display-container">
-        <div id="display"></div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Display
