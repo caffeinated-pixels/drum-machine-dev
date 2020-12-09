@@ -12,7 +12,11 @@ function Display(props) {
       </div>
     )
   } else {
-    return <div id="display"></div>
+    return (
+      <div className="display-container">
+        <div id="display"></div>
+      </div>
+    )
   }
 }
 
