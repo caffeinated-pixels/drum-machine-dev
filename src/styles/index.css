@@ -16,7 +16,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: lightyellow;
-  font-family: "Goldman", sans-serif;
+  font-family: 'Goldman', sans-serif;
   font-weight: 700;
 }
 
@@ -136,14 +136,14 @@ button:active {
 /* start display styling */
 #display {
   width: 345px;
-  height: 99px;
+  height: auto;
   margin: 10px auto;
   padding: 8px;
   background-color: lightgrey;
   border: 10px solid black;
   border-radius: 2px;
   box-shadow: 0 0 0 1pt white;
-  font-family: "Press Start 2P", serif;
+  font-family: 'Press Start 2P', serif;
   font-size: 0.78125rem;
   line-height: 1;
   overflow: hidden;
@@ -166,8 +166,9 @@ button:active {
 
 .bank-btn {
   border-radius: 5px;
-  height: 30px;
-  width: 100px;
+  min-height: 30px;
+  width: auto;
+  min-width: 100px;
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -250,7 +251,7 @@ button:active {
   border-radius: 7px;
   box-shadow: 2px 2px 4px #1f1f1f;
   color: white;
-  font-family: "Goldman", cursive;
+  font-family: 'Goldman', cursive;
   font-size: 1.875rem;
   text-shadow: 1px 1px 2px black;
 }
@@ -338,7 +339,8 @@ button:active {
   }
   #drum-machine {
     width: 345px;
-    height: 580px;
+    height: auto;
+    min-height: 580px;
   }
   .top-bar {
     font-size: 1.5rem;
@@ -353,8 +355,8 @@ button:active {
   }
   /*** start left panel changes ***/
   #display {
-    height: 90px;
-    width: 300px;
+    min-height: 90px;
+    width: 320px;
   }
   .btn-container {
     justify-content: space-around;
@@ -362,8 +364,9 @@ button:active {
     margin-top: 2px;
   }
   .bank-btn {
-    height: 25px;
-    width: 75px;
+    min-height: 25px;
+    min-width: 75px;
+    margin: 0 2px;
   }
   .otherbtn-container {
     justify-content: space-around;

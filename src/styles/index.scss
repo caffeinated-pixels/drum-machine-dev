@@ -40,7 +40,7 @@ body {
   height: 100vh;
   background-color: lightyellow;
 
-  font-family: "Goldman", sans-serif;
+  font-family: 'Goldman', sans-serif;
   font-weight: 700;
 }
 
@@ -54,8 +54,8 @@ a {
   }
 }
 
-
-button { /* general buttons styling to provide consistency between browsers */
+button {
+  /* general buttons styling to provide consistency between browsers */
   display: inline-block;
   margin: 0;
   padding: 5px;
@@ -87,7 +87,8 @@ button { /* general buttons styling to provide consistency between browsers */
   text-align: center;
 }
 
-.no-select { /* make text labels non-selectable */
+.no-select {
+  /* make text labels non-selectable */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -169,7 +170,7 @@ button { /* general buttons styling to provide consistency between browsers */
 /* start display styling */
 #display {
   width: 345px;
-  height: 99px;
+  height: auto;
   margin: 10px auto;
   padding: 8px;
 
@@ -178,7 +179,7 @@ button { /* general buttons styling to provide consistency between browsers */
   border-radius: 2px;
   box-shadow: 0 0 0 1pt white;
 
-  font-family: "Press Start 2P", serif;
+  font-family: 'Press Start 2P', serif;
   font-size: calculateRem(12.5px);
   line-height: 1;
   overflow: hidden;
@@ -200,8 +201,9 @@ button { /* general buttons styling to provide consistency between browsers */
 
 .bank-btn {
   border-radius: 5px;
-  height: 30px;
-  width: 100px;
+  min-height: 30px;
+  width: auto;
+  min-width: 100px;
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -218,7 +220,6 @@ button { /* general buttons styling to provide consistency between browsers */
   justify-content: space-between;
   height: 150px;
   margin: 20px;
-
 }
 
 .power-container {
@@ -295,7 +296,7 @@ button { /* general buttons styling to provide consistency between browsers */
   box-shadow: $box-shadow;
 
   color: white;
-  font-family: "Goldman", cursive;
+  font-family: 'Goldman', cursive;
   font-size: calculateRem(30px);
   @include text-shadow();
 
@@ -404,7 +405,8 @@ button { /* general buttons styling to provide consistency between browsers */
 /*** END RIGHT PANEL STYLING ***/
 
 /*** MEDIA BREAKS ***/
-@media (max-width: calculateEm(749px)) { // 749 / 16 = 46.8125em
+@media (max-width: calculateEm(749px)) {
+  // 749 / 16 = 46.8125em
   $basefont: 14px; // new base font-size for calculating rems
 
   html {
@@ -413,7 +415,8 @@ button { /* general buttons styling to provide consistency between browsers */
 
   #drum-machine {
     width: 345px;
-    height: 580px;
+    height: auto;
+    min-height: 580px;
   }
 
   .top-bar {
@@ -432,8 +435,8 @@ button { /* general buttons styling to provide consistency between browsers */
 
   /*** start left panel changes ***/
   #display {
-    height: 90px;
-    width: 300px;
+    min-height: 90px;
+    width: 320px;
   }
 
   .btn-container {
@@ -443,8 +446,9 @@ button { /* general buttons styling to provide consistency between browsers */
   }
 
   .bank-btn {
-    height: 25px;
-    width: 75px;
+    min-height: 25px;
+    min-width: 75px;
+    margin: 0 2px;
   }
 
   .otherbtn-container {
