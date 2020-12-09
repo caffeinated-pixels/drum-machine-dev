@@ -74,9 +74,11 @@ button {
   @include text-shadow();
 
   cursor: pointer;
-  &:hover,
-  &:focus {
+  &:focus, &:hover {
     outline-style: none;
+  }
+  &:focus {
+    box-shadow: 0 0 0 .2rem rgb(38,143,255);
   }
   &:active {
     transform: scale(0.95);
@@ -170,6 +172,7 @@ button {
 /* start display styling */
 #display {
   width: 345px;
+  min-height: 97.5px;
   height: auto;
   margin: 10px auto;
   padding: 8px;

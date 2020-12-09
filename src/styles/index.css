@@ -48,8 +48,12 @@ button {
   cursor: pointer;
 }
 
-button:hover, button:focus {
+button:focus, button:hover {
   outline-style: none;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.2rem #268fff;
 }
 
 button:active {
@@ -136,6 +140,7 @@ button:active {
 /* start display styling */
 #display {
   width: 345px;
+  min-height: 97.5px;
   height: auto;
   margin: 10px auto;
   padding: 8px;
