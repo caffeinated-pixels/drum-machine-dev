@@ -154,6 +154,7 @@ button:active {
   min-width: 345px;
   min-height: 97.5px;
   width: 21.5625em;
+  /* prevents width scaling to word length */
   height: auto;
   padding: 8px;
   background-color: lightgrey;

@@ -188,7 +188,7 @@ button {
 #display {
   min-width: 345px;
   min-height: 97.5px;
-  width: calculateEm(345px);
+  width: calculateEm(345px); /* prevents width scaling to word length */
   height: auto;
   padding: 8px;
 
