@@ -38,7 +38,7 @@ button {
   /* general buttons styling to provide consistency between browsers */
   display: inline-block;
   margin: 0;
-  padding: 5px;
+  padding: 0.25em;
   border: none;
   box-shadow: 2px 2px 4px #1f1f1f;
   background: #0069ed;
@@ -83,8 +83,10 @@ button:active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 475px;
-  width: 750px;
+  height: auto;
+  width: auto;
+  min-height: 475px;
+  min-width: 750px;
   background: linear-gradient(to right, #5d5d5d, #292929);
   border: 1px solid black;
   box-shadow: 2px 2px 4px #1f1f1f;
@@ -141,12 +143,18 @@ button:active {
   flex: auto;
 }
 
+.display-container {
+  display: flex;
+  justify-content: center;
+  margin: 0.625em 5px;
+}
+
 /* start display styling */
 #display {
-  width: 345px;
+  min-width: 345px;
   min-height: 97.5px;
+  width: 21.5625em;
   height: auto;
-  margin: 10px auto;
   padding: 8px;
   background-color: lightgrey;
   border: 10px solid black;
@@ -246,6 +254,7 @@ button:active {
   align-items: center;
   flex: 1 1 285px;
   height: 350px;
+  margin-left: 5px;
   margin-right: 5px;
 }
 
@@ -256,6 +265,7 @@ button:active {
   --padsize: 100px;
   height: var(--padsize);
   width: var(--padsize);
+  margin: 5px;
   cursor: pointer;
   border-radius: 7px;
   box-shadow: 2px 2px 4px #1f1f1f;
@@ -341,13 +351,14 @@ button:active {
 /*** end pad colors ***/
 /*** END RIGHT PANEL STYLING ***/
 /*** MEDIA BREAKS ***/
-@media (max-width: 46.8125em) {
+@media (max-width: 749px) {
   html {
     font-size: 0.875rem;
     /* set root font-size */
   }
   #drum-machine {
-    width: 345px;
+    min-width: 345px;
+    max-width: 345px;
     height: auto;
     min-height: 580px;
   }
@@ -365,7 +376,8 @@ button:active {
   /*** start left panel changes ***/
   #display {
     min-height: 92.8px;
-    width: 310px;
+    min-width: 310px;
+    max-width: 340px;
   }
   .btn-container {
     justify-content: space-around;

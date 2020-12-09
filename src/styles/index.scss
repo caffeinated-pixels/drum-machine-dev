@@ -65,7 +65,7 @@ button {
   /* general buttons styling to provide consistency between browsers */
   display: inline-block;
   margin: 0;
-  padding: 5px;
+  padding: calculateEm(4px);
 
   border: none;
   box-shadow: $box-shadow;
@@ -111,8 +111,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 475px;
-  width: 750px;
+  height: auto;
+  width: auto;
+  min-height: 475px;
+  min-width: 750px;
   background: linear-gradient(to right, #5d5d5d, #292929);
   border: $border-default;
   box-shadow: $box-shadow;
@@ -176,12 +178,18 @@ button {
   flex: auto;
 }
 
+.display-container {
+  display: flex;
+  justify-content: center;
+  margin: calculateEm(10px) 5px;
+}
+
 /* start display styling */
 #display {
-  width: 345px;
+  min-width: 345px;
   min-height: 97.5px;
+  width: calculateEm(345px);
   height: auto;
-  margin: 10px auto;
   padding: 8px;
 
   background-color: lightgrey;
@@ -291,6 +299,7 @@ button {
   align-items: center;
   flex: 1 1 285px;
   height: 350px;
+  margin-left: 5px;
   margin-right: 5px;
 }
 
@@ -298,9 +307,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+
   --padsize: 100px;
   height: var(--padsize);
   width: var(--padsize);
+  margin: 5px;
+
   cursor: pointer;
   border-radius: 7px;
   box-shadow: $box-shadow;
@@ -415,7 +427,7 @@ button {
 /*** END RIGHT PANEL STYLING ***/
 
 /*** MEDIA BREAKS ***/
-@media (max-width: calculateEm(749px)) {
+@media (max-width: 749px) {
   // 749 / 16 = 46.8125em
   $basefont: 14px; // new base font-size for calculating rems
 
@@ -424,7 +436,8 @@ button {
   }
 
   #drum-machine {
-    width: 345px;
+    min-width: 345px;
+    max-width: 345px;
     height: auto;
     min-height: 580px;
   }
@@ -446,7 +459,8 @@ button {
   /*** start left panel changes ***/
   #display {
     min-height: 92.8px;
-    width: 310px;
+    min-width: 310px;
+    max-width: 340px;
   }
 
   .btn-container {
