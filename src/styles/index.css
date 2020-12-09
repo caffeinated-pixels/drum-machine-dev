@@ -360,7 +360,7 @@ button:active {
   }
   /*** start left panel changes ***/
   #display {
-    min-height: 90px;
+    min-height: 92.8px;
     width: 310px;
   }
   .btn-container {
