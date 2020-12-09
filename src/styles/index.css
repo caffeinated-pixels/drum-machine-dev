@@ -117,7 +117,7 @@ button:active {
 /*** end main box styling ***/
 /* start bottom bar styling */
 .bottom-bar {
-  height: 30px;
+  min-height: 30px;
   padding: 4px;
   color: white;
   font-size: 0.8125rem;
