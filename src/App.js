@@ -3,7 +3,7 @@ import TopBar from './TopBar'
 import MainBox from './MainBox'
 import BottomBar from './BottomBar'
 
-function App() {
+export default function App() {
   return (
     <div id="drum-machine">
       <TopBar />
@@ -12,5 +12,3 @@ function App() {
     </div>
   )
 }
-
-export default App

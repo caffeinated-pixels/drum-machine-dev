@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RightPanel(props) {
+export default function RightPanel(props) {
   const drumpads = props.soundBank.map((entry, i) => {
     return (
       <div
@@ -24,5 +24,3 @@ function RightPanel(props) {
 
   return <div className="right-panel no-select">{drumpads}</div>
 }
-
-export default RightPanel

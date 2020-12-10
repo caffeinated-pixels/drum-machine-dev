@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TopBar() {
+export default function TopBar() {
   return (
     <div className="top-bar">
       <p>
@@ -15,5 +15,3 @@ function TopBar() {
     </div>
   )
 }
-
-export default TopBar

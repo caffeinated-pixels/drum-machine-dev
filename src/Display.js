@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Display(props) {
+export default function Display(props) {
   return (
     <div className="display-container">
       <div id="display" className={props.power ? 'no-select' : 'hidden'}>
@@ -11,5 +11,3 @@ function Display(props) {
     </div>
   )
 }
-
-export default Display

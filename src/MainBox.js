@@ -6,7 +6,7 @@ import acoustic from './arrays/acoustic'
 import chaosEngine from './arrays/chaos-engine'
 
 // moved state & playSample up so both LP & RP have access via props
-function MainBox() {
+export default function MainBox() {
   const [currentSample, setCurrentSample] = useState('')
   const [soundBank, setSoundBank] = useState(synthwave)
   const [bankName, setBankName] = useState('Synthwave')
@@ -243,5 +243,3 @@ function MainBox() {
 //     )
 //   }
 // }
-
-export default MainBox

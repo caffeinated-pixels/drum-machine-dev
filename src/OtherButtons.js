@@ -1,6 +1,6 @@
 import React from 'react'
 
-function OtherButtons(props) {
+export default function OtherButtons(props) {
   return (
     <div className="otherbtn-container">
       <div className="power-container">
@@ -24,5 +24,3 @@ function OtherButtons(props) {
     </div>
   )
 }
-
-export default OtherButtons

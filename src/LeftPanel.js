@@ -3,7 +3,7 @@ import Display from './Display'
 import BankButtons from './BankButtons'
 import OtherButtons from './OtherButtons'
 
-function LeftPanel(props) {
+export default function LeftPanel(props) {
   return (
     <div className="left-panel">
       <Display
@@ -21,5 +21,3 @@ function LeftPanel(props) {
     </div>
   )
 }
-
-export default LeftPanel

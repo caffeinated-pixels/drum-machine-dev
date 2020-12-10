@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BankButtons(props) {
+export default function BankButtons(props) {
   return (
     <div className="btn-container">
       <button
@@ -27,5 +27,3 @@ function BankButtons(props) {
     </div>
   )
 }
-
-export default BankButtons

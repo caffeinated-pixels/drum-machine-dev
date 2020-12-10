@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BottomBar() {
+export default function BottomBar() {
   return (
     <div className="bottom-bar text-center">
       <p>
@@ -16,5 +16,3 @@ function BottomBar() {
     </div>
   )
 }
-
-export default BottomBar
