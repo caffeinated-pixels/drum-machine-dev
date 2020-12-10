@@ -263,6 +263,12 @@ export default class MainBox extends React.Component {
     )
   }
 
+  componentWillUnmount = () => {
+    // clean-up/remove event listeners
+    document.removeEventListener('keydown', this.handleKeyPress)
+    document.removeEventListener('animationend', this.removeAnimClass)
+  }
+
   playSample = elementId => {
     const element = document.getElementById(elementId)
 
