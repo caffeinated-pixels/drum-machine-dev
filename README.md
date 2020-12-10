@@ -21,3 +21,4 @@ Some solutions that worked:
 - use global state through Redux or Context API???
 - tidy up code!!!
 - host files locally
+- shorten synthwave snare sample
