@@ -1,75 +1,76 @@
+import nodeActivated from '../samples/chaosEngine/nodeActivated.mp3'
+import food from '../samples/chaosEngine/food.mp3'
+import powerUp from '../samples/chaosEngine/powerUp.mp3'
+import playerSaved from '../samples/chaosEngine/playerSaved.mp3'
+import levelComplete from '../samples/chaosEngine/levelComplete.mp3'
+import extraLife from '../samples/chaosEngine/extraLife.mp3'
+import exitOpen from '../samples/chaosEngine/exitOpen.mp3'
+import partyPower from '../samples/chaosEngine/partyPower.mp3'
+import shield from '../samples/chaosEngine/shield.mp3'
+
 const chaosEngine = [
   {
     trigger: 'Q',
     keycode: 81,
     pad: 'padQ',
     name: 'Node-activated',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Node%20activated.mp3'
+    src: nodeActivated
   },
   {
     trigger: 'W',
     keycode: 87,
     pad: 'padW',
     name: 'Food',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Food.mp3'
+    src: food
   },
   {
     trigger: 'E',
     keycode: 69,
     pad: 'padE',
     name: 'Power-up',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Power%20up.mp3'
+    src: powerUp
   },
   {
     trigger: 'A',
     keycode: 65,
     pad: 'padA',
     name: 'Player-saved',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Player%20saved.mp3'
+    src: playerSaved
   },
   {
     trigger: 'S',
     keycode: 83,
     pad: 'padS',
     name: 'Level-complete',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Level%20complete.mp3'
+    src: levelComplete
   },
   {
     trigger: 'D',
     keycode: 68,
     pad: 'padD',
     name: 'Extra-life',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Extra%20life.mp3'
+    src: extraLife
   },
   {
     trigger: 'Z',
     keycode: 90,
     pad: 'padZ',
     name: 'Exit-open',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Exit%20open.mp3'
+    src: exitOpen
   },
   {
     trigger: 'X',
     keycode: 88,
     pad: 'padX',
     name: 'Party-power',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Party%20Power.mp3'
+    src: partyPower
   },
   {
     trigger: 'C',
     keycode: 67,
     pad: 'padC',
     name: 'Shield',
-    src:
-      'https://raw.githubusercontent.com/caffeinated-pixels/drum-samples/main/chaosengine/Shield.mp3'
+    src: shield
   }
 ]
 
