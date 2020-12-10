@@ -1,6 +1,6 @@
 {
   "name": "drum-machine",
-  "homepage": "file:///F:/react%20projects/drum-machine/build/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
