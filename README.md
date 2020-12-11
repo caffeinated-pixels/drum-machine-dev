@@ -1,6 +1,6 @@
-# Drum machine (dev server)
+# Drum machine (dev server version)
 
-A React-based app for the [Build a Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) freeCodeCamp project.
+A React-based app for the [Build a Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) freeCodeCamp project. I setup this version using create-react-app.
 
 ## Pad animations
 
