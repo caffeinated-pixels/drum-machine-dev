@@ -9,7 +9,7 @@ export default function TopBar() {
       </p>
       <img
         className="logo"
-        src="https://thecakeisaliegaming.files.wordpress.com/2020/11/mercenary-32x32-1.png"
+        src="./favicon.png"
         alt="Mercenary Instruments logo"
       />
     </div>
