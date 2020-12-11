@@ -2,6 +2,8 @@
 
 A React-based app for the [Build a Drum Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine) freeCodeCamp project. I setup this version using create-react-app.
 
+You can [see the app in action](https://merc-drum-machine.netlify.app/) here. There's also a [less up-to-date version on codepen](https://codepen.io/cakeisaliegaming/full/oNzNerZ).
+
 ## Pad animations
 
 Creating simple animations in css is relatively straight-foward. And we can trigger these animations by adding a class to the element. However, we then need to remove this class once the animation is finished so that it can play again if the same key/button is pressed.
