@@ -16,9 +16,4 @@ Some solutions that worked:
 - using another DOM event listener, eg `document.addEventListener('animationend', event => document.getElementById(event.target.id).classList.remove('pad-anim') )`
 - using the React `onAnimationEnd={}` attribute, which works in a similar fashion to the above example and creates an event object that can be passed into a function
 
-### To-do list
-
-- use global state through Redux or Context API???
-- tidy up code!!!
-- host files locally
-- shorten synthwave snare sample
+For some reason I can't figure yet, in iOS browsers the scale anim works but the border anim doesn't! I don't know if this is the same for Mac OS as I only have a Windows PC, Android phone and iPad for testing.
