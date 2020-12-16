@@ -336,13 +336,16 @@ button {
   100% {
     border: 4px solid orange;
     transform: scale(0.95);
+    filter: brightness(130%);
   }
 }
+
 
 @keyframes padClick {
   100% {
     border: 4px solid orange;
     transform: scale(0.95);
+    filter: brightness(130%);
   }
 }
 
