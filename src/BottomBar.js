@@ -5,13 +5,7 @@ export default function BottomBar() {
     <div className="bottom-bar text-center">
       <p>
         Coded & abused by&nbsp;
-        <a
-          href="https://steviegill-webportfolio.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Stevie Gill
-        </a>
+        <a href="https://steviegill-webportfolio.netlify.app/">Stevie Gill</a>
       </p>
     </div>
   )
