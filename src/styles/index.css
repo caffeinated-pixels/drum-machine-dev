@@ -133,6 +133,11 @@ button:active {
   font-size: 0.8125rem;
 }
 
+.bottom-bar .githubIcon {
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
 /* end bottom bar styling */
 /*** END OUTER CONTAINERS SYTLING ***/
 /*** START LEFT PANEL SYTLING ***/

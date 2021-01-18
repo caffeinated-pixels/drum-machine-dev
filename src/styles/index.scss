@@ -166,6 +166,12 @@ button {
   font-size: calculateRem(13px);
 
   @extend %bar-border;
+
+  .githubIcon {
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+
 }
 /* end bottom bar styling */
 /*** END OUTER CONTAINERS SYTLING ***/
