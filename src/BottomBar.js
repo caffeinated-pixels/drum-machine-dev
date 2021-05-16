@@ -6,7 +6,7 @@ export default function BottomBar() {
   return (
     <div className="bottom-bar text-center">
       <p>
-        Coded & abused by&nbsp;
+        Coded by&nbsp;
         <a
           href="https://steviegill-webportfolio.netlify.app/"
           title="Stevie's web app portofolio page"
