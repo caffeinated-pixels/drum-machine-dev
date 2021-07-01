@@ -32,16 +32,19 @@ export default class MainBox extends React.Component {
   }
 
   playSample = elementId => {
-    const element = document.getElementById(elementId)
+    const padButton = document.getElementById(elementId)
+
+    // grab nested <audio> element
+    const audioEl = document.getElementById(elementId).firstChild
 
     // check if power is on first!
     if (this.state.power) {
       // add class to trigger css animation
-      element.classList.add('pad-anim')
-      element.firstChild.volume = this.state.volume
+      padButton.classList.add('pad-anim')
+      audioEl.volume = this.state.volume
 
-      // need to use play() method on nested <audio> element
-      document.getElementById(elementId).firstChild.play()
+      audioEl.currentTime = 0
+      audioEl.play()
       this.setState(prevState => ({ ...prevState, currentSample: elementId }))
     }
   }
