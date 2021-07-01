@@ -19,16 +19,11 @@ export default class MainBox extends React.Component {
   componentDidMount = () => {
     // add event listener for drumpad keypresses
     document.addEventListener('keydown', this.handleKeyPress)
-    // add event listener for removing css animation class
-    document.addEventListener('animationend', event =>
-      document.getElementById(event.target.id).classList.remove('pad-anim')
-    )
   }
 
   componentWillUnmount = () => {
     // clean-up/remove event listeners
     document.removeEventListener('keydown', this.handleKeyPress)
-    document.removeEventListener('animationend', this.removeAnimClass)
   }
 
   playSample = elementId => {
@@ -37,7 +32,7 @@ export default class MainBox extends React.Component {
     // check if power is on first!
     if (this.state.power) {
       // add class to trigger css animation
-      element.classList.add('pad-anim')
+      // element.classList.add('pad-anim')
       element.firstChild.volume = this.state.volume
 
       // need to use play() method on nested <audio> element
