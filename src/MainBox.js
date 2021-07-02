@@ -18,7 +18,7 @@ export default class MainBox extends React.Component {
 
   componentDidMount = () => {
     // add event listener for drumpad keypresses
-    document.addEventListener('keydown', this.handleKeyPress)
+    document.addEventListener('keyup', this.handleKeyPress)
     // add event listener for removing css animation class
     document.addEventListener('animationend', event =>
       document.getElementById(event.target.id).classList.remove('pad-anim')
@@ -27,7 +27,7 @@ export default class MainBox extends React.Component {
 
   componentWillUnmount = () => {
     // clean-up/remove event listeners
-    document.removeEventListener('keydown', this.handleKeyPress)
+    document.removeEventListener('keyup', this.handleKeyPress)
     document.removeEventListener('animationend', this.removeAnimClass)
   }
 
@@ -43,7 +43,7 @@ export default class MainBox extends React.Component {
       padButton.classList.add('pad-anim')
       audioEl.volume = this.state.volume
 
-      audioEl.currentTime = 0
+      audioEl.load()
       audioEl.play()
       this.setState(prevState => ({ ...prevState, currentSample: elementId }))
     }
