@@ -44,7 +44,7 @@ body {
 
   background: {
     color: lightyellow;
-    image: url(..\images\sun-retrogrid_1920.jpg);
+    image: url(../images/sun-retrogrid_1920.jpg);
     repeat: no-repeat;
     position: center;
     size: cover;
@@ -81,11 +81,12 @@ button {
   @include text-shadow();
 
   cursor: pointer;
-  &:focus, &:hover {
+  &:focus,
+  &:hover {
     outline-style: none;
   }
   &:focus {
-    box-shadow: 0 0 0 .2rem rgb(38,143,255);
+    box-shadow: 0 0 0 0.2rem rgb(38, 143, 255);
   }
   &:active {
     transform: scale(0.95);
@@ -171,7 +172,6 @@ button {
     font-size: 1.1rem;
     vertical-align: middle;
   }
-
 }
 /* end bottom bar styling */
 /*** END OUTER CONTAINERS SYTLING ***/
@@ -345,7 +345,6 @@ button {
     filter: brightness(130%);
   }
 }
-
 
 @keyframes padClick {
   100% {
