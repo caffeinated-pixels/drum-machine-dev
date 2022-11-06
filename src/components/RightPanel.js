@@ -1,13 +1,11 @@
-import React from 'react'
-
-export default function RightPanel(props) {
-  const drumpads = props.soundBank.map((entry, i) => {
+export const RightPanel = ({ soundBank, handleClick }) => {
+  const drumpads = soundBank.map((entry, i) => {
     return (
       <div
         key={i}
         id={entry.name}
         className={`drum-pad ${entry.pad} `}
-        onClick={props.handleClick}
+        onClick={handleClick}
       >
         <audio
           id={entry.trigger}

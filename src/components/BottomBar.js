@@ -1,8 +1,7 @@
-import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
-export default function BottomBar() {
+export const BottomBar = () => {
   return (
     <div className="bottom-bar text-center">
       <p>

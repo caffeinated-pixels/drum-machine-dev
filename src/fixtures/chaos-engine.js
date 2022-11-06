@@ -8,70 +8,68 @@ import exitOpen from '../samples/chaosEngine/exitOpen.mp3'
 import partyPower from '../samples/chaosEngine/partyPower.mp3'
 import shield from '../samples/chaosEngine/shield.mp3'
 
-const chaosEngine = [
+export const chaosEngine = [
   {
     trigger: 'Q',
     keycode: 81,
     pad: 'padQ',
     name: 'Node-activated',
-    src: nodeActivated
+    src: nodeActivated,
   },
   {
     trigger: 'W',
     keycode: 87,
     pad: 'padW',
     name: 'Food',
-    src: food
+    src: food,
   },
   {
     trigger: 'E',
     keycode: 69,
     pad: 'padE',
     name: 'Power-up',
-    src: powerUp
+    src: powerUp,
   },
   {
     trigger: 'A',
     keycode: 65,
     pad: 'padA',
     name: 'Player-saved',
-    src: playerSaved
+    src: playerSaved,
   },
   {
     trigger: 'S',
     keycode: 83,
     pad: 'padS',
     name: 'Level-complete',
-    src: levelComplete
+    src: levelComplete,
   },
   {
     trigger: 'D',
     keycode: 68,
     pad: 'padD',
     name: 'Extra-life',
-    src: extraLife
+    src: extraLife,
   },
   {
     trigger: 'Z',
     keycode: 90,
     pad: 'padZ',
     name: 'Exit-open',
-    src: exitOpen
+    src: exitOpen,
   },
   {
     trigger: 'X',
     keycode: 88,
     pad: 'padX',
     name: 'Party-power',
-    src: partyPower
+    src: partyPower,
   },
   {
     trigger: 'C',
     keycode: 67,
     pad: 'padC',
     name: 'Shield',
-    src: shield
-  }
+    src: shield,
+  },
 ]
-
-export default chaosEngine

@@ -1,26 +1,23 @@
 import React from 'react'
-import LeftPanel from './LeftPanel'
-import RightPanel from './RightPanel'
-import synthwave from './arrays/synthwave'
-import acoustic from './arrays/acoustic'
-import chaosEngine from './arrays/chaos-engine'
+import { LeftPanel, RightPanel } from './'
+import { synthwave, acoustic, chaosEngine } from '../fixtures'
 
 // moved state & playSample up so both LP & RP have access via props
 // CLASS-BASED VERSION of MainBox
-export default class MainBox extends React.Component {
+export class MainBox extends React.Component {
   state = {
     currentSample: '',
     soundBank: synthwave,
     bankName: 'Synthwave',
     power: true,
-    volume: 1
+    volume: 1,
   }
 
   componentDidMount = () => {
     // add event listener for drumpad keypresses
     document.addEventListener('keyup', this.handleKeyPress)
     // add event listener for removing css animation class
-    document.addEventListener('animationend', event =>
+    document.addEventListener('animationend', (event) =>
       document.getElementById(event.target.id).classList.remove('pad-anim')
     )
   }
@@ -31,7 +28,7 @@ export default class MainBox extends React.Component {
     document.removeEventListener('animationend', this.removeAnimClass)
   }
 
-  playSample = elementId => {
+  playSample = (elementId) => {
     const padButton = document.getElementById(elementId)
 
     // grab nested <audio> element
@@ -45,24 +42,24 @@ export default class MainBox extends React.Component {
 
       audioEl.load()
       audioEl.play()
-      this.setState(prevState => ({ ...prevState, currentSample: elementId }))
+      this.setState((prevState) => ({ ...prevState, currentSample: elementId }))
     }
   }
 
-  handleClick = event => {
+  handleClick = (event) => {
     this.playSample(event.target.id)
   }
 
-  handleKeyPress = event => {
+  handleKeyPress = (event) => {
     // use keycode to to get sample name
     const elementId = this.state.soundBank.filter(
-      entry => entry.keycode === event.keyCode
+      (entry) => entry.keycode === event.keyCode
     )
 
     if (elementId[0]) this.playSample(elementId[0].name)
   }
 
-  handleBankBtnClick = event => {
+  handleBankBtnClick = (event) => {
     let { soundBank, bankName } = this.state
 
     if (event.target.id === 'bank1') {
@@ -76,36 +73,36 @@ export default class MainBox extends React.Component {
       bankName = 'Chaos Engine'
     }
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       soundBank: soundBank,
       bankName: bankName,
-      currentSample: ''
+      currentSample: '',
     }))
   }
 
   handlePowerBtn = () => {
     // flip power state boolean
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       power: !prevState.power,
-      currentSample: ''
+      currentSample: '',
     }))
   }
 
-  handleVolBtn = event => {
+  handleVolBtn = (event) => {
     // find out which vol btn was pressed
     const whichBtn = event.target.id
-    this.setState(prevState => {
+    this.setState((prevState) => {
       if (whichBtn === 'vol-up' && prevState.volume < 1) {
         return {
           ...prevState,
-          volume: Number((prevState.volume + 0.1).toFixed(1))
+          volume: Number((prevState.volume + 0.1).toFixed(1)),
         }
       } else if (whichBtn === 'vol-down' && prevState.volume >= 0.1) {
         return {
           ...prevState,
-          volume: Number((prevState.volume - 0.1).toFixed(1))
+          volume: Number((prevState.volume - 0.1).toFixed(1)),
         }
       }
       /* because of floating point precision errors we need to round the return val to 1 decimal place; tofixed() returns a string, so we convert back to a num using Number() */
