@@ -1,0 +1,10 @@
+$dark-grey: #1f1f1f;
+$box-shadow: 2px 2px 4px $dark-grey;
+$text-background: #f0fbdb;
+$border-default: 1px solid black;
+
+// SCSS PLACEHOLDERS
+%bar-border {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
