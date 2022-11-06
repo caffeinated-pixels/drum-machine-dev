@@ -1,11 +1,11 @@
 // SCSS FUNCTIONS
 @function calculateRem($size, $base: 16px) {
-  $remSize: ($size / $base);
+  $remSize: calc($size / $base);
   @return #{$remSize}rem;
 }
 
 @function calculateEm($size, $base: 16px) {
-  $remSize: ($size / $base);
+  $remSize: calc($size / $base);
   @return #{$remSize}em;
 }
 
