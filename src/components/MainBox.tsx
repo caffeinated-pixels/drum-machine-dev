@@ -22,19 +22,17 @@ export const MainBox = () => {
     }
   })
 
-  function playSample(elementId) {
-    const element = document.getElementById(elementId)
+  const playSample = (elementId: string) => {
+    if (!power) return // check if power is on first!
+    const parentDiv = document.getElementById(elementId) as HTMLDivElement
+    const audioElement = parentDiv.firstChild as HTMLAudioElement
 
-    // check if power is on first!
-    if (power) {
-      // add class to trigger css animation
-      element.classList.add('pad-anim')
-      element.firstChild.volume = volume
+    // add class to trigger css animation
+    parentDiv.classList.add('pad-anim')
 
-      // need to use play() method on nested <audio> element
-      document.getElementById(elementId).firstChild.play()
-      setCurrentSample(elementId)
-    }
+    // need to use play() method on nested <audio> element
+    audioElement.volume = volume
+    audioElement.play()
   }
 
   const handleClick = (event) => {
@@ -100,11 +98,7 @@ export const MainBox = () => {
         volume={volume}
         handleVolBtn={handleVolBtn}
       />
-      <RightPanel
-        handleClick={handleClick}
-        soundBank={soundBank}
-        power={power}
-      />
+      <RightPanel handleClick={handleClick} soundBank={soundBank} />
     </div>
   )
 }
