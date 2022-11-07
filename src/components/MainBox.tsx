@@ -24,6 +24,7 @@ export const MainBox = () => {
 
   const playSample = (elementId: string) => {
     if (!power) return // check if power is on first!
+    setCurrentSample(elementId)
     const parentDiv = document.getElementById(elementId) as HTMLDivElement
     const audioElement = parentDiv.firstChild as HTMLAudioElement
 
