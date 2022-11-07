@@ -115,7 +115,7 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
     <div
       className="right-panel no-select"
     >
-      <div
+      <button
         className="drum-pad padQ "
         id="Kick-1"
         onClick={[Function]}
@@ -129,8 +129,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         Q
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padW "
         id="Kick-2"
         onClick={[Function]}
@@ -144,8 +144,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         W
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padE "
         id="Snare"
         onClick={[Function]}
@@ -159,8 +159,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         E
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padA "
         id="Tom-1"
         onClick={[Function]}
@@ -174,8 +174,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         A
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padS "
         id="Tom-2"
         onClick={[Function]}
@@ -189,8 +189,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         S
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padD "
         id="Hihat-closed"
         onClick={[Function]}
@@ -204,8 +204,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         D
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padZ "
         id="Cymbal-crash"
         onClick={[Function]}
@@ -219,8 +219,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         Z
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padX "
         id="Clap"
         onClick={[Function]}
@@ -234,8 +234,8 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         X
-      </div>
-      <div
+      </button>
+      <button
         className="drum-pad padC "
         id="Clap-snare"
         onClick={[Function]}
@@ -249,7 +249,7 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
            
         </audio>
         C
-      </div>
+      </button>
     </div>
   </div>
   <div

@@ -1,7 +1,7 @@
 export const RightPanel = ({ soundBank, handleClick }) => {
   const drumpads = soundBank.map((entry, i) => {
     return (
-      <div
+      <button
         key={i}
         id={entry.name}
         className={`drum-pad ${entry.pad} `}
@@ -16,7 +16,7 @@ export const RightPanel = ({ soundBank, handleClick }) => {
           {' '}
         </audio>
         {entry.trigger}
-      </div>
+      </button>
     )
   })
 
