@@ -18,7 +18,7 @@ export const MainBox = () => {
     // need to remove event Listeners to prevent issues (similar to componentWillUnmount)
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
-      document.removeEventListener('animationend', removeAnimClass)
+      // document.removeEventListener('animationend', removeAnimClass)
     }
   })
 
@@ -40,13 +40,12 @@ export const MainBox = () => {
     playSample(event.target.id)
   }
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: KeyboardEvent) => {
+    console.log(event.key)
     // use keycode to to get sample name
-    const elementId = soundBank.filter(
-      (entry) => entry.keycode === event.keyCode
-    )
+    // const elementId = soundBank.filter((entry) => entry.key === event.key)
 
-    if (elementId[0]) playSample(elementId[0].name)
+    // if (elementId[0]) playSample(elementId[0].name)
   }
 
   const removeAnimClass = (event) => {
