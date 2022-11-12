@@ -1,9 +1,18 @@
+import type { Sample } from '../types/general'
+
+type Props = {
+  activeElement: string
+  setActiveElement: (name: string) => void
+  soundBank: Sample[]
+  handleClick: (sample: Sample) => void
+}
+
 export const DrumPads = ({
   activeElement,
   setActiveElement,
   soundBank,
   handleClick,
-}) => {
+}: Props) => {
   const DrumPads = soundBank.map((entry, i) => {
     const animatePadClass = activeElement === entry.name ? 'pad-anim' : ''
 
@@ -13,7 +22,7 @@ export const DrumPads = ({
         id={entry.name}
         className={`drum-pad ${entry.pad} ${animatePadClass}`}
         onClick={() => handleClick(entry)}
-        onAnimationEnd={() => setActiveElement(null)}
+        onAnimationEnd={() => setActiveElement('')}
       >
         {entry.trigger}
       </button>

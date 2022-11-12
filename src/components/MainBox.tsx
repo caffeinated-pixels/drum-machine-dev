@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, PointerEvent } from 'react'
 import { LeftPanel, DrumPads } from './'
 import { synthwave, acoustic, chaosEngine } from '../fixtures'
 
@@ -6,7 +6,7 @@ export const MainBox = () => {
   const [currentSample, setCurrentSample] = useState('')
   const [soundBank, setSoundBank] = useState(synthwave)
   const [bankName, setBankName] = useState('Synthwave')
-  const [activeElement, setActiveElement] = useState<string>(null)
+  const [activeElement, setActiveElement] = useState<string>('')
   const [power, setPower] = useState(true)
   const [volume, setVolume] = useState(1)
 
@@ -16,7 +16,7 @@ export const MainBox = () => {
     return () => document.removeEventListener('keydown', handleKeyPress)
   })
 
-  const playSample = (name, audio) => {
+  const playSample = (name: string, audio: HTMLAudioElement) => {
     if (!power) return // check if power is on first!
     audio.volume = volume
     audio.play()
@@ -24,23 +24,31 @@ export const MainBox = () => {
     setActiveElement(name)
   }
 
-  const handleClick = ({ name, audio }) => {
+  const handleClick = ({
+    name,
+    audio,
+  }: {
+    name: string
+    audio: HTMLAudioElement
+  }) => {
     playSample(name, audio)
   }
 
   const handleKeyPress = (event: KeyboardEvent) => {
     const sample = soundBank.find((sample) => sample.key === event.key)
-    playSample(sample.name, sample.audio)
+    if (sample) playSample(sample.name, sample.audio)
   }
 
-  const handleBankBtnClick = (event) => {
-    if (event.target.id === 'bank1') {
+  const handleBankBtnClick = (event: PointerEvent<HTMLButtonElement>) => {
+    const target = event.target as HTMLButtonElement
+
+    if (target.id === 'bank1') {
       setSoundBank(synthwave)
       setBankName('Synthwave')
-    } else if (event.target.id === 'bank2') {
+    } else if (target.id === 'bank2') {
       setSoundBank(acoustic)
       setBankName('Acoustic')
-    } else if (event.target.id === 'bank3') {
+    } else if (target.id === 'bank3') {
       setSoundBank(chaosEngine)
       setBankName('Chaos Engine')
     }
@@ -52,9 +60,10 @@ export const MainBox = () => {
     setCurrentSample('')
   }
 
-  const handleVolBtn = (event) => {
+  const handleVolBtn = (event: PointerEvent<HTMLButtonElement>) => {
+    const target = event.target as HTMLButtonElement
     // find out which vol btn was pressed
-    const whichBtn = event.target.id
+    const whichBtn = target.id
 
     setVolume((prevState) => {
       if (whichBtn === 'vol-up' && prevState < 1) {

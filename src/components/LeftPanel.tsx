@@ -1,4 +1,15 @@
+import { MouseEventHandler } from 'react'
 import { Display, BankButtons, OtherButtons } from './'
+
+type Props = {
+  bankName: string
+  display: string
+  volume: number
+  power: boolean
+  handleBankBtnClick: MouseEventHandler
+  handlePowerBtn: () => void
+  handleVolBtn: MouseEventHandler
+}
 
 export const LeftPanel = ({
   bankName,
@@ -8,7 +19,7 @@ export const LeftPanel = ({
   handleBankBtnClick,
   handlePowerBtn,
   handleVolBtn,
-}) => {
+}: Props) => {
   return (
     <div className="left-panel">
       <Display

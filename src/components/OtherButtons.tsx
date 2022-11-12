@@ -1,4 +1,16 @@
-export const OtherButtons = ({ handlePowerBtn, handleVolBtn, power }) => {
+import { MouseEventHandler } from 'react'
+
+type Props = {
+  handlePowerBtn: () => void
+  handleVolBtn: MouseEventHandler
+  power: boolean
+}
+
+export const OtherButtons = ({
+  handlePowerBtn,
+  handleVolBtn,
+  power,
+}: Props) => {
   return (
     <div className="otherbtn-container">
       <div className="power-container">

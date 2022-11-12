@@ -1,4 +1,10 @@
-export const BankButtons = ({ handleBankBtnClick }) => {
+import { MouseEventHandler } from 'react'
+
+export const BankButtons = ({
+  handleBankBtnClick,
+}: {
+  handleBankBtnClick: MouseEventHandler
+}) => {
   return (
     <div className="btn-container">
       <button id="bank1" className="bank-btn" onClick={handleBankBtnClick}>
