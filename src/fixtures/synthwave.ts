@@ -8,68 +8,70 @@ import cymbalCrash from '../samples/synthwave/cymbalCrash.mp3'
 import clap from '../samples/synthwave/clap.mp3'
 import clapSnare from '../samples/synthwave/clapSnare.mp3'
 
-export const synthwave = [
+import type { Sample } from '../types/general'
+
+export const synthwave: Sample[] = [
   {
     trigger: 'q',
     key: 'q',
     pad: 'padQ',
     name: 'Kick-1',
-    src: kick1,
+    audio: new Audio(kick1),
   },
   {
     trigger: 'w',
     key: 'w',
     pad: 'padW',
     name: 'Kick-2',
-    src: kick2,
+    audio: new Audio(kick2),
   },
   {
     trigger: 'e',
     key: 'e',
     pad: 'padE',
     name: 'Snare',
-    src: snare,
+    audio: new Audio(snare),
   },
   {
     trigger: 'a',
     key: 'a',
     pad: 'padA',
     name: 'Tom-1',
-    src: tom1,
+    audio: new Audio(tom1),
   },
   {
     trigger: 's',
     key: 's',
     pad: 'padS',
     name: 'Tom-2',
-    src: tom2,
+    audio: new Audio(tom2),
   },
   {
     trigger: 'd',
     key: 'd',
     pad: 'padD',
     name: 'Hihat-closed',
-    src: hihatClosed,
+    audio: new Audio(hihatClosed),
   },
   {
     trigger: 'z',
     key: 'z',
     pad: 'padZ',
     name: 'Cymbal-crash',
-    src: cymbalCrash,
+    audio: new Audio(cymbalCrash),
   },
   {
     trigger: 'x',
     key: 'x',
     pad: 'padX',
     name: 'Clap',
-    src: clap,
+    audio: new Audio(clap),
   },
   {
     trigger: 'c',
     key: 'c',
     pad: 'padC',
     name: 'Clap-snare',
-    src: clapSnare,
+    audio: new Audio(clapSnare),
   },
 ]

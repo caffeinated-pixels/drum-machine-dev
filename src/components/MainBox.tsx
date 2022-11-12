@@ -36,16 +36,15 @@ export const MainBox = () => {
     audioElement.play()
   }
 
-  const handleClick = (event) => {
-    playSample(event.target.id)
+  const handleClick = ({ name, audio }) => {
+    audio.play()
+    setCurrentSample(name)
   }
 
   const handleKeyPress = (event: KeyboardEvent) => {
-    console.log(event.key)
-    // use keycode to to get sample name
-    // const elementId = soundBank.filter((entry) => entry.key === event.key)
-
-    // if (elementId[0]) playSample(elementId[0].name)
+    const sample = soundBank.find((sample) => sample.key === event.key)
+    sample.audio.play()
+    setCurrentSample(sample.name)
   }
 
   const removeAnimClass = (event) => {

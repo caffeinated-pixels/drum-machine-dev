@@ -5,16 +5,8 @@ export const DrumPads = ({ soundBank, handleClick }) => {
         key={i}
         id={entry.name}
         className={`drum-pad ${entry.pad} `}
-        onClick={handleClick}
+        onClick={() => handleClick(entry)}
       >
-        <audio
-          id={entry.trigger}
-          className="clip"
-          src={entry.src}
-          preload="auto"
-        >
-          {' '}
-        </audio>
         {entry.trigger}
       </button>
     )

@@ -8,68 +8,70 @@ import exitOpen from '../samples/chaosEngine/exitOpen.mp3'
 import partyPower from '../samples/chaosEngine/partyPower.mp3'
 import shield from '../samples/chaosEngine/shield.mp3'
 
-export const chaosEngine = [
+import type { Sample } from '../types/general'
+
+export const chaosEngine: Sample[] = [
   {
     trigger: 'q',
     key: 'q',
     pad: 'padQ',
     name: 'Node-activated',
-    src: nodeActivated,
+    audio: new Audio(nodeActivated),
   },
   {
     trigger: 'w',
     key: 'w',
     pad: 'padW',
     name: 'Food',
-    src: food,
+    audio: new Audio(food),
   },
   {
     trigger: 'e',
     key: 'e',
     pad: 'padE',
     name: 'Power-up',
-    src: powerUp,
+    audio: new Audio(powerUp),
   },
   {
     trigger: 'a',
     key: 'a',
     pad: 'padA',
     name: 'Player-saved',
-    src: playerSaved,
+    audio: new Audio(playerSaved),
   },
   {
     trigger: 's',
     key: 's',
     pad: 'padS',
     name: 'Level-complete',
-    src: levelComplete,
+    audio: new Audio(levelComplete),
   },
   {
     trigger: 'd',
     key: 'd',
     pad: 'padD',
     name: 'Extra-life',
-    src: extraLife,
+    audio: new Audio(extraLife),
   },
   {
     trigger: 'z',
     key: 'z',
     pad: 'padZ',
     name: 'Exit-open',
-    src: exitOpen,
+    audio: new Audio(exitOpen),
   },
   {
     trigger: 'x',
     key: 'x',
     pad: 'padX',
     name: 'Party-power',
-    src: partyPower,
+    audio: new Audio(partyPower),
   },
   {
     trigger: 'c',
     key: 'c',
     pad: 'padC',
     name: 'Shield',
-    src: shield,
+    audio: new Audio(shield),
   },
 ]

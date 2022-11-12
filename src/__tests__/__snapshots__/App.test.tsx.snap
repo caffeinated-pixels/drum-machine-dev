@@ -120,14 +120,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Kick-1"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="q"
-          preload="auto"
-          src="kick1.mp3"
-        >
-           
-        </audio>
         q
       </button>
       <button
@@ -135,14 +127,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Kick-2"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="w"
-          preload="auto"
-          src="kick2.mp3"
-        >
-           
-        </audio>
         w
       </button>
       <button
@@ -150,14 +134,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Snare"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="e"
-          preload="auto"
-          src="snare.mp3"
-        >
-           
-        </audio>
         e
       </button>
       <button
@@ -165,14 +141,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Tom-1"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="a"
-          preload="auto"
-          src="tom1.mp3"
-        >
-           
-        </audio>
         a
       </button>
       <button
@@ -180,14 +148,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Tom-2"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="s"
-          preload="auto"
-          src="tom2.mp3"
-        >
-           
-        </audio>
         s
       </button>
       <button
@@ -195,14 +155,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Hihat-closed"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="d"
-          preload="auto"
-          src="hihatClosed.mp3"
-        >
-           
-        </audio>
         d
       </button>
       <button
@@ -210,14 +162,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Cymbal-crash"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="z"
-          preload="auto"
-          src="cymbalCrash.mp3"
-        >
-           
-        </audio>
         z
       </button>
       <button
@@ -225,14 +169,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Clap"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="x"
-          preload="auto"
-          src="clap.mp3"
-        >
-           
-        </audio>
         x
       </button>
       <button
@@ -240,14 +176,6 @@ exports[`Calculator app Matches DOM tree snapshot 1`] = `
         id="Clap-snare"
         onClick={[Function]}
       >
-        <audio
-          className="clip"
-          id="c"
-          preload="auto"
-          src="clapSnare.mp3"
-        >
-           
-        </audio>
         c
       </button>
     </div>
