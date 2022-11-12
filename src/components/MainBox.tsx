@@ -12,13 +12,9 @@ export const MainBox = () => {
   useEffect(() => {
     // add event listener for DrumPads keypresses
     document.addEventListener('keydown', handleKeyPress)
-    // add event listener for removing css animation class
-    document.addEventListener('animationend', removeAnimClass)
 
-    // need to remove event Listeners to prevent issues (similar to componentWillUnmount)
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
-      // document.removeEventListener('animationend', removeAnimClass)
     }
   })
 
@@ -27,13 +23,6 @@ export const MainBox = () => {
     audio.volume = volume
     audio.play()
     setCurrentSample(name)
-
-    // // add class to trigger css animation
-    // parentDiv.classList.add('pad-anim')
-
-    // // need to use play() method on nested <audio> element
-
-    // audioElement.play()
   }
 
   const handleClick = ({ name, audio }) => {
@@ -43,10 +32,6 @@ export const MainBox = () => {
   const handleKeyPress = (event: KeyboardEvent) => {
     const sample = soundBank.find((sample) => sample.key === event.key)
     playSample(sample.name, sample.audio)
-  }
-
-  const removeAnimClass = (event) => {
-    document.getElementById(event.target.id).classList.remove('pad-anim')
   }
 
   const handleBankBtnClick = (event) => {
@@ -95,7 +80,11 @@ export const MainBox = () => {
         volume={volume}
         handleVolBtn={handleVolBtn}
       />
-      <DrumPads handleClick={handleClick} soundBank={soundBank} />
+      <DrumPads
+        handleClick={handleClick}
+        soundBank={soundBank}
+        currentSample={currentSample}
+      />
     </div>
   )
 }
