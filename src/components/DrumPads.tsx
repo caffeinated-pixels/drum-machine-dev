@@ -1,5 +1,5 @@
-export const RightPanel = ({ soundBank, handleClick }) => {
-  const drumpads = soundBank.map((entry, i) => {
+export const DrumPads = ({ soundBank, handleClick }) => {
+  const DrumPadss = soundBank.map((entry, i) => {
     return (
       <button
         key={i}
@@ -20,5 +20,5 @@ export const RightPanel = ({ soundBank, handleClick }) => {
     )
   })
 
-  return <div className="right-panel no-select">{drumpads}</div>
+  return <div className="right-panel no-select">{DrumPadss}</div>
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { LeftPanel, RightPanel } from './'
+import { LeftPanel, DrumPads } from './'
 import { synthwave, acoustic, chaosEngine } from '../fixtures'
 
 export const MainBox = () => {
@@ -10,7 +10,7 @@ export const MainBox = () => {
   const [volume, setVolume] = useState(1)
 
   useEffect(() => {
-    // add event listener for drumpad keypresses
+    // add event listener for DrumPads keypresses
     document.addEventListener('keydown', handleKeyPress)
     // add event listener for removing css animation class
     document.addEventListener('animationend', removeAnimClass)
@@ -98,7 +98,7 @@ export const MainBox = () => {
         volume={volume}
         handleVolBtn={handleVolBtn}
       />
-      <RightPanel handleClick={handleClick} soundBank={soundBank} />
+      <DrumPads handleClick={handleClick} soundBank={soundBank} />
     </div>
   )
 }
