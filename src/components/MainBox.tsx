@@ -22,29 +22,27 @@ export const MainBox = () => {
     }
   })
 
-  const playSample = (elementId: string) => {
+  const playSample = (name, audio) => {
     if (!power) return // check if power is on first!
-    setCurrentSample(elementId)
-    const parentDiv = document.getElementById(elementId) as HTMLDivElement
-    const audioElement = parentDiv.firstChild as HTMLAudioElement
+    audio.volume = volume
+    audio.play()
+    setCurrentSample(name)
 
-    // add class to trigger css animation
-    parentDiv.classList.add('pad-anim')
+    // // add class to trigger css animation
+    // parentDiv.classList.add('pad-anim')
 
-    // need to use play() method on nested <audio> element
-    audioElement.volume = volume
-    audioElement.play()
+    // // need to use play() method on nested <audio> element
+
+    // audioElement.play()
   }
 
   const handleClick = ({ name, audio }) => {
-    audio.play()
-    setCurrentSample(name)
+    playSample(name, audio)
   }
 
   const handleKeyPress = (event: KeyboardEvent) => {
     const sample = soundBank.find((sample) => sample.key === event.key)
-    sample.audio.play()
-    setCurrentSample(sample.name)
+    playSample(sample.name, sample.audio)
   }
 
   const removeAnimClass = (event) => {
