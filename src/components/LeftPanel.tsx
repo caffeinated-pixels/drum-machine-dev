@@ -1,11 +1,17 @@
+import type {
+  BankName,
+  Display as DisplayType,
+  Volume,
+  Power,
+} from '../types/general'
 import { MouseEventHandler } from 'react'
 import { Display, BankButtons, OtherButtons } from './'
 
 type Props = {
-  bankName: string
-  display: string
-  volume: number
-  power: boolean
+  bankName: BankName
+  display: DisplayType
+  volume: Volume
+  power: Power
   handleBankBtnClick: MouseEventHandler
   handlePowerBtn: () => void
   handleVolBtn: MouseEventHandler

@@ -1,8 +1,15 @@
+import type {
+  BankName,
+  Display as DisplayType,
+  Volume,
+  Power,
+} from '../types/general'
+
 type Props = {
-  bankName: string
-  display: string
-  power: boolean
-  volume: number
+  bankName: BankName
+  display: DisplayType
+  power: Power
+  volume: Volume
 }
 
 export const Display = ({ bankName, display, power, volume }: Props) => {

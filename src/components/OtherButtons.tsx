@@ -1,9 +1,10 @@
 import { MouseEventHandler } from 'react'
+import type { Power } from '../types/general'
 
 type Props = {
   handlePowerBtn: () => void
   handleVolBtn: MouseEventHandler
-  power: boolean
+  power: Power
 }
 
 export const OtherButtons = ({
