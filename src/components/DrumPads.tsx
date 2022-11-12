@@ -1,9 +1,11 @@
-export const DrumPads = ({ currentSample, soundBank, handleClick }) => {
-  console.log('drumpad render')
-
+export const DrumPads = ({
+  activeElement,
+  setActiveElement,
+  soundBank,
+  handleClick,
+}) => {
   const DrumPads = soundBank.map((entry, i) => {
-    // TODO: remove class when animation is done
-    const animatePadClass = currentSample === entry.name ? 'pad-anim' : ''
+    const animatePadClass = activeElement === entry.name ? 'pad-anim' : ''
 
     return (
       <button
@@ -11,6 +13,7 @@ export const DrumPads = ({ currentSample, soundBank, handleClick }) => {
         id={entry.name}
         className={`drum-pad ${entry.pad} ${animatePadClass}`}
         onClick={() => handleClick(entry)}
+        onAnimationEnd={() => setActiveElement(null)}
       >
         {entry.trigger}
       </button>

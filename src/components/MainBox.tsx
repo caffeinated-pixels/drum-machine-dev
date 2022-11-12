@@ -6,16 +6,14 @@ export const MainBox = () => {
   const [currentSample, setCurrentSample] = useState('')
   const [soundBank, setSoundBank] = useState(synthwave)
   const [bankName, setBankName] = useState('Synthwave')
+  const [activeElement, setActiveElement] = useState<string>(null)
   const [power, setPower] = useState(true)
   const [volume, setVolume] = useState(1)
 
   useEffect(() => {
-    // add event listener for DrumPads keypresses
     document.addEventListener('keydown', handleKeyPress)
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyPress)
-    }
+    return () => document.removeEventListener('keydown', handleKeyPress)
   })
 
   const playSample = (name, audio) => {
@@ -23,6 +21,7 @@ export const MainBox = () => {
     audio.volume = volume
     audio.play()
     setCurrentSample(name)
+    setActiveElement(name)
   }
 
   const handleClick = ({ name, audio }) => {
@@ -83,7 +82,8 @@ export const MainBox = () => {
       <DrumPads
         handleClick={handleClick}
         soundBank={soundBank}
-        currentSample={currentSample}
+        activeElement={activeElement}
+        setActiveElement={setActiveElement}
       />
     </div>
   )
