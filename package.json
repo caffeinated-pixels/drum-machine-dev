@@ -28,7 +28,7 @@
     "test:watch": "react-scripts test",
     "test:coverage": "react-scripts test --watchAll=false --coverage a",
     "test:snapshot": "npm run test -- --updateSnapshot",
-    "check:lint": "eslint . --ext js,ts,tsx --fix",
+    "check:lint": "eslint src --ext js,ts,tsx --fix",
     "check:type": "tsc -p tsconfig.json --noEmit",
     "lint-staged": "lint-staged",
     "eject": "react-scripts eject",
