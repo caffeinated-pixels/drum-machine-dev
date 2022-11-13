@@ -35,6 +35,7 @@ exports[`Drum machine app Matches DOM tree snapshot 1`] = `
     >
       <div
         className="display-container"
+        data-testid="display"
       >
         <div
           className="no-select"
