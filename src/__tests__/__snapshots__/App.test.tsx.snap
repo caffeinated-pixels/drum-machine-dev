@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calculator app Matches DOM tree snapshot 1`] = `
+exports[`Drum machine app Matches DOM tree snapshot 1`] = `
 <div
   id="drum-machine"
 >
