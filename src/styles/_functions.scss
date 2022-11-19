@@ -1,0 +1,15 @@
+// SCSS FUNCTIONS
+@function calculateRem($size, $base: 16px) {
+  $remSize: calc($size / $base);
+  @return #{$remSize}rem;
+}
+
+@function calculateEm($size, $base: 16px) {
+  $remSize: calc($size / $base);
+  @return #{$remSize}em;
+}
+
+// SCSS MIXINS
+@mixin text-shadow($x: 1px, $y: 1px, $blur: 2px, $color: black) {
+  text-shadow: $x $y $blur $color;
+}

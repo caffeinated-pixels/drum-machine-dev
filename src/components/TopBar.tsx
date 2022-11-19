@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function TopBar() {
+export const TopBar = () => {
   return (
     <div className="top-bar">
       <p>

@@ -8,70 +8,70 @@ import hihatClosed from '../samples/acoustic/hihatClosed.mp3'
 import hihatOpen from '../samples/acoustic/hihatOpen.mp3'
 import cymbalCrash from '../samples/acoustic/cymbalCrash.mp3'
 
-const acoustic = [
+import type { Sample } from '../types/general'
+
+export const acoustic: Sample[] = [
   {
-    trigger: 'Q',
-    keycode: 81,
+    trigger: 'q',
+    key: 'q',
     pad: 'padQ',
     name: 'Kick-1',
-    src: kick1
+    audio: new Audio(kick1),
   },
   {
-    trigger: 'W',
-    keycode: 87,
+    trigger: 'w',
+    key: 'w',
     pad: 'padW',
     name: 'Kick-2',
-    src: kick2
+    audio: new Audio(kick2),
   },
   {
-    trigger: 'E',
-    keycode: 69,
+    trigger: 'e',
+    key: 'e',
     pad: 'padE',
     name: 'Snare-1',
-    src: snare1
+    audio: new Audio(snare1),
   },
   {
-    trigger: 'A',
-    keycode: 65,
+    trigger: 'a',
+    key: 'a',
     pad: 'padA',
     name: 'Snare-2',
-    src: snare2
+    audio: new Audio(snare2),
   },
   {
-    trigger: 'S',
-    keycode: 83,
+    trigger: 's',
+    key: 's',
     pad: 'padS',
     name: 'Tom-1',
-    src: tom1
+    audio: new Audio(tom1),
   },
   {
-    trigger: 'D',
-    keycode: 68,
+    trigger: 'd',
+    key: 'd',
     pad: 'padD',
     name: 'Tom-2',
-    src: tom2
+    audio: new Audio(tom2),
   },
   {
-    trigger: 'Z',
-    keycode: 90,
+    trigger: 'z',
+    key: 'z',
     pad: 'padZ',
     name: 'Hihat-closed',
-    src: hihatClosed
+    audio: new Audio(hihatClosed),
   },
   {
-    trigger: 'X',
-    keycode: 88,
+    trigger: 'x',
+    key: 'x',
     pad: 'padX',
     name: 'Hihat-open',
-    src: hihatOpen
+    audio: new Audio(hihatOpen),
   },
   {
-    trigger: 'C',
-    keycode: 67,
+    trigger: 'c',
+    key: 'c',
     pad: 'padC',
     name: 'Cymbal-crash',
-    src: cymbalCrash
-  }
+    audio: new Audio(cymbalCrash),
+  },
 ]
-
-export default acoustic

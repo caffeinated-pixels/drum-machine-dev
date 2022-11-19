@@ -1,0 +1,405 @@
+@use './variables' as *;
+@use './functions' as *;
+
+/*** START OUTER CONTAINERS SYTLING ***/
+#drum-machine {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: auto;
+  min-height: 475px;
+  min-width: 750px;
+  background: linear-gradient(to right, #5d5d5d, #292929);
+  border: $border-default;
+  box-shadow: $box-shadow;
+}
+
+/*** start top bar styling ***/
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 10px;
+  z-index: 10;
+
+  color: white;
+  font-size: calculateRem(26px);
+  @include text-shadow($x: 2px, $y: 2px);
+
+  @extend %bar-border;
+  box-shadow: 0 2px 5px $dark-grey;
+}
+
+.thin {
+  font-weight: 400;
+}
+
+.model {
+  @extend .thin;
+  font-size: calculateRem(18px);
+  font-style: italic;
+}
+
+.logo {
+  border-radius: 2px;
+}
+/*** end top bar styling ***/
+
+/*** start main box (center) styling ***/
+.main-box {
+  display: flex;
+}
+/*** end main box styling ***/
+
+/* start bottom bar styling */
+.bottom-bar {
+  min-height: 30px;
+  padding: 4px;
+
+  color: white;
+  font-size: calculateRem(13px);
+
+  @extend %bar-border;
+
+  .githubIcon {
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+}
+/* end bottom bar styling */
+/*** END OUTER CONTAINERS SYTLING ***/
+
+/*** START LEFT PANEL SYTLING ***/
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: auto;
+}
+
+.display-container {
+  display: flex;
+  justify-content: center;
+  margin: calculateEm(10px) 5px;
+}
+
+/* start display styling */
+#display {
+  min-width: 345px;
+  min-height: 97.5px;
+  width: calculateEm(345px); /* prevents width scaling to word length */
+  height: auto;
+  padding: 8px;
+
+  background-color: lightgrey;
+  border: 10px solid black;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1pt white;
+
+  font-family: 'Press Start 2P', serif;
+  font-size: calculateRem(12.5px);
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap; /* prevents pushing other text off display */
+
+  p {
+    padding: 4px;
+    @include text-shadow($blur: 1px, $color: grey);
+  }
+}
+/* end display styling */
+
+/*** start bank button styling ***/
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.bank-btn {
+  border-radius: 5px;
+  min-height: 30px;
+  width: auto;
+  min-width: 100px;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+.bank-btn:hover {
+  background: #0053ba;
+}
+/*** end bank button styling ***/
+
+/*** start pwr & vol btn styling ***/
+.otherbtn-container {
+  display: flex;
+  justify-content: space-between;
+  height: 150px;
+  margin: 20px;
+}
+
+.power-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.powbtn-on {
+  --circle: 75px;
+  height: var(--circle);
+  width: var(--circle);
+  border-radius: 100%;
+  font-size: calculateRem(14px);
+  background: rgb(71, 220, 1);
+  background: radial-gradient(
+    circle,
+    rgba(71, 220, 1, 1) 25%,
+    rgba(116, 234, 39, 1) 55%,
+    rgba(187, 255, 98, 1) 100%
+  );
+  &:hover {
+    transform: scale(1.02);
+  }
+  &:active {
+    transform: scale(0.95);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.powbtn-off {
+  @extend .powbtn-on;
+  background: rgb(220, 1, 1);
+  background: radial-gradient(
+    circle,
+    rgba(220, 1, 1, 1) 25%,
+    rgba(234, 68, 39, 1) 55%,
+    rgba(255, 132, 98, 1) 100%
+  );
+}
+
+.volume-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#vol-up {
+  margin-bottom: 15px;
+}
+/*** end pwr & vol btn styling ***/
+/*** END LEFT PANEL SYTLING ***/
+
+/*** START RIGHT PANEL STYLING ***/
+.right-panel {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  flex: 1 1 285px;
+  height: 350px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.drum-pad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --padsize: 100px;
+  height: var(--padsize);
+  width: var(--padsize);
+  margin: 5px;
+
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: $box-shadow;
+
+  color: white;
+  font-family: 'Goldman', cursive;
+  font-size: calculateRem(30px);
+  @include text-shadow();
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+/*** start drum pad animations ***/
+@-webkit-keyframes padClick {
+  100% {
+    border: 4px solid orange;
+    transform: scale(0.95);
+    filter: brightness(130%);
+  }
+}
+
+@keyframes padClick {
+  100% {
+    border: 4px solid orange;
+    transform: scale(0.95);
+    filter: brightness(130%);
+  }
+}
+
+.pad-anim {
+  -webkit-animation: padClick 0.3s linear;
+  animation: padClick 0.3s linear;
+}
+/*** end drum pad animations ***/
+
+/*** start pad colors ***/
+.padQ {
+  background: rgba(255, 0, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 128, 0, 1) 25%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+.padW {
+  background: rgba(255, 128, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 0, 1) 25%,
+    rgba(255, 128, 0, 1) 100%
+  );
+}
+.padE {
+  background: rgb(255, 255, 0);
+  background: radial-gradient(
+    circle,
+    rgba(128, 255, 0, 1) 25%,
+    rgba(255, 255, 0, 1) 100%
+  );
+}
+.padA {
+  background: rgba(128, 255, 0, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 128, 1) 25%,
+    rgba(128, 255, 0, 1) 100%
+  );
+}
+.padS {
+  background: rgba(0, 255, 128, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 128, 1) 25%,
+    rgba(0, 255, 255, 1) 100%
+  );
+}
+.padD {
+  background: rgba(0, 255, 128, 1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 128, 255, 1) 0%,
+    rgba(0, 255, 128, 1) 100%
+  );
+}
+.padZ {
+  background: rgba(0, 128, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(128, 0, 255, 1) 25%,
+    rgba(0, 128, 255, 1) 100%
+  );
+}
+.padX {
+  background: #8000ff;
+  background: radial-gradient(#8000ff, #ff00ff);
+  background: rgba(128, 0, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 255, 1) 0%,
+    rgba(128, 0, 255, 1) 100%
+  );
+}
+.padC {
+  background: rgba(255, 0, 255, 1);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 0, 255, 1) 100%
+  );
+}
+/*** end pad colors ***/
+/*** END RIGHT PANEL STYLING ***/
+
+/*** MEDIA BREAKS ***/
+@media (max-width: 749px) {
+  // 749 / 16 = 46.8125em
+  $basefont: 14px; // new base font-size for calculating rems
+
+  html {
+    font-size: calculateRem($basefont); /* set root font-size */
+  }
+
+  #drum-machine {
+    min-width: 345px;
+    max-width: 345px;
+    height: auto;
+    min-height: 580px;
+  }
+
+  .top-bar {
+    font-size: calculateRem(21px, $basefont);
+    line-height: 1;
+    padding: 3px 10px;
+  }
+
+  .model {
+    font-size: calculateRem(14px, $basefont);
+  }
+
+  .main-box {
+    flex-direction: column;
+  }
+
+  /*** start left panel changes ***/
+  #display {
+    min-height: 92.8px;
+    min-width: 310px;
+    max-width: 340px;
+  }
+
+  .btn-container {
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 2px;
+  }
+
+  .bank-btn {
+    min-height: 25px;
+    min-width: 75px;
+    margin: 0 2px;
+  }
+
+  .otherbtn-container {
+    justify-content: space-around;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #vol-up {
+    margin-bottom: 10px;
+  }
+
+  .powbtn-on {
+    --circle: 60px;
+  }
+  /*** end left panel changes ***/
+  /*** start right panel changes ***/
+  .right-panel {
+    margin: 0 35px 5px;
+    row-gap: 10px;
+    flex-basis: 0;
+    height: auto;
+  }
+
+  .drum-pad {
+    --padsize: 80px;
+  }
+  /*** end right panel changes ***/
+}

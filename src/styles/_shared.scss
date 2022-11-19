@@ -1,0 +1,75 @@
+@use './variables' as *;
+@use './functions' as *;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  font-family: 'Goldman', sans-serif;
+  font-weight: 700;
+
+  background: {
+    color: lightyellow;
+    image: url(../images/sun-retrogrid_1920.jpg);
+    repeat: no-repeat;
+    position: center;
+    size: cover;
+  }
+}
+
+a {
+  color: #3399ff;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: #b45922;
+  }
+}
+
+button {
+  /* general buttons styling to provide consistency between browsers */
+  display: inline-block;
+  margin: 0;
+  padding: calculateEm(4px);
+
+  border: none;
+  box-shadow: $box-shadow;
+  background: #0069ed;
+
+  color: #ffffff;
+  font-family: inherit;
+  // font-size: calculateRem(15px);
+  font-size: calc(15 / 16 * 1rem);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  @include text-shadow();
+
+  cursor: pointer;
+  &:focus,
+  &:hover {
+    outline-style: none;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgb(38, 143, 255);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-select {
+  /* make text labels non-selectable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
