@@ -4,6 +4,10 @@ import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 import { App } from '../App'
 
+jest
+  .spyOn(window.HTMLMediaElement.prototype, 'play')
+  .mockImplementation(() => Promise.resolve())
+
 describe('Drum machine app', () => {
   it('Matches DOM tree snapshot', () => {
     const domTree = renderer.create(<App />).toJSON()
@@ -88,8 +92,7 @@ describe('display', () => {
     expect(screen.queryByText(/Bank: Synthwave/)).not.toBeInTheDocument()
   })
 
-  // TODO: mock the audio object
-  it.skip('should be display previous values when turned back on', async () => {
+  it('should be display previous values when turned back on', async () => {
     render(<App />)
 
     const bank3Btn = screen.getByRole('button', { name: /bank 3/i })
