@@ -8,6 +8,7 @@ import exitOpen from '../samples/chaosEngine/exitOpen.mp3'
 import partyPower from '../samples/chaosEngine/partyPower.mp3'
 import shield from '../samples/chaosEngine/shield.mp3'
 
+import { createAudio } from '../utils/createAudio'
 import type { Sample } from '../types/general'
 
 export const chaosEngine: Sample[] = [
@@ -16,62 +17,62 @@ export const chaosEngine: Sample[] = [
     key: 'q',
     pad: 'padQ',
     name: 'Node-activated',
-    audio: new Audio(nodeActivated),
+    audio: createAudio(nodeActivated),
   },
   {
     trigger: 'w',
     key: 'w',
     pad: 'padW',
     name: 'Food',
-    audio: new Audio(food),
+    audio: createAudio(food),
   },
   {
     trigger: 'e',
     key: 'e',
     pad: 'padE',
     name: 'Power-up',
-    audio: new Audio(powerUp),
+    audio: createAudio(powerUp),
   },
   {
     trigger: 'a',
     key: 'a',
     pad: 'padA',
     name: 'Player-saved',
-    audio: new Audio(playerSaved),
+    audio: createAudio(playerSaved),
   },
   {
     trigger: 's',
     key: 's',
     pad: 'padS',
     name: 'Level-complete',
-    audio: new Audio(levelComplete),
+    audio: createAudio(levelComplete),
   },
   {
     trigger: 'd',
     key: 'd',
     pad: 'padD',
     name: 'Extra-life',
-    audio: new Audio(extraLife),
+    audio: createAudio(extraLife),
   },
   {
     trigger: 'z',
     key: 'z',
     pad: 'padZ',
     name: 'Exit-open',
-    audio: new Audio(exitOpen),
+    audio: createAudio(exitOpen),
   },
   {
     trigger: 'x',
     key: 'x',
     pad: 'padX',
     name: 'Party-power',
-    audio: new Audio(partyPower),
+    audio: createAudio(partyPower),
   },
   {
     trigger: 'c',
     key: 'c',
     pad: 'padC',
     name: 'Shield',
-    audio: new Audio(shield),
+    audio: createAudio(shield),
   },
 ]

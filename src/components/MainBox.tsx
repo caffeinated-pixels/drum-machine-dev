@@ -1,6 +1,7 @@
 import { useState, useEffect, PointerEvent } from 'react'
 import { LeftPanel, DrumPads } from './'
 import { synthwave, acoustic, chaosEngine } from '../fixtures'
+import { Howl, Howler } from 'howler'
 
 export const MainBox = () => {
   const [currentSample, setCurrentSample] = useState('')
@@ -16,21 +17,15 @@ export const MainBox = () => {
     return () => document.removeEventListener('keydown', handleKeyPress)
   })
 
-  const playSample = (name: string, audio: HTMLAudioElement) => {
+  const playSample = (name: string, audio: Howl) => {
     if (!power) return // check if power is on first!
-    audio.volume = volume
+    Howler.volume(volume)
     audio.play()
     setCurrentSample(name)
     setActiveElement(name)
   }
 
-  const handleClick = ({
-    name,
-    audio,
-  }: {
-    name: string
-    audio: HTMLAudioElement
-  }) => {
+  const handleClick = ({ name, audio }: { name: string; audio: Howl }) => {
     playSample(name, audio)
   }
 

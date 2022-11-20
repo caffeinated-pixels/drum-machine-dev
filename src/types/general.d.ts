@@ -1,9 +1,11 @@
+import { Howl } from 'howler'
+
 export type Sample = {
   trigger: string
   key: string
   pad: string
   name: string
-  audio: HTMLAudioElement
+  audio: Howl
 }
 
 export type BankName = string

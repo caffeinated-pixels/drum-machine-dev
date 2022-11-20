@@ -4,10 +4,6 @@ import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 import { App } from '../App'
 
-jest
-  .spyOn(window.HTMLMediaElement.prototype, 'play')
-  .mockImplementation(() => Promise.resolve())
-
 describe('Drum machine app', () => {
   it('Matches DOM tree snapshot', () => {
     const domTree = renderer.create(<App />).toJSON()
@@ -92,6 +88,7 @@ describe('display', () => {
     expect(screen.queryByText(/Bank: Synthwave/)).not.toBeInTheDocument()
   })
 
+  // TODO: mock Howler to test audio & prevent console errors
   it('should be display previous values when turned back on', async () => {
     render(<App />)
 
