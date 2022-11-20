@@ -8,6 +8,7 @@ import hihatClosed from '../samples/acoustic/hihatClosed.mp3'
 import hihatOpen from '../samples/acoustic/hihatOpen.mp3'
 import cymbalCrash from '../samples/acoustic/cymbalCrash.mp3'
 
+import { createAudio } from '../utils/createAudio'
 import type { Sample } from '../types/general'
 
 export const acoustic: Sample[] = [
@@ -16,62 +17,62 @@ export const acoustic: Sample[] = [
     key: 'q',
     pad: 'padQ',
     name: 'Kick-1',
-    audio: new Audio(kick1),
+    audio: createAudio(kick1),
   },
   {
     trigger: 'w',
     key: 'w',
     pad: 'padW',
     name: 'Kick-2',
-    audio: new Audio(kick2),
+    audio: createAudio(kick2),
   },
   {
     trigger: 'e',
     key: 'e',
     pad: 'padE',
     name: 'Snare-1',
-    audio: new Audio(snare1),
+    audio: createAudio(snare1),
   },
   {
     trigger: 'a',
     key: 'a',
     pad: 'padA',
     name: 'Snare-2',
-    audio: new Audio(snare2),
+    audio: createAudio(snare2),
   },
   {
     trigger: 's',
     key: 's',
     pad: 'padS',
     name: 'Tom-1',
-    audio: new Audio(tom1),
+    audio: createAudio(tom1),
   },
   {
     trigger: 'd',
     key: 'd',
     pad: 'padD',
     name: 'Tom-2',
-    audio: new Audio(tom2),
+    audio: createAudio(tom2),
   },
   {
     trigger: 'z',
     key: 'z',
     pad: 'padZ',
     name: 'Hihat-closed',
-    audio: new Audio(hihatClosed),
+    audio: createAudio(hihatClosed),
   },
   {
     trigger: 'x',
     key: 'x',
     pad: 'padX',
     name: 'Hihat-open',
-    audio: new Audio(hihatOpen),
+    audio: createAudio(hihatOpen),
   },
   {
     trigger: 'c',
     key: 'c',
     pad: 'padC',
     name: 'Cymbal-crash',
-    audio: new Audio(cymbalCrash),
+    audio: createAudio(cymbalCrash),
   },
 ]
