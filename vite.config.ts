@@ -18,4 +18,7 @@ export default defineConfig({
   server: {
     open: true, // open browser on server start
   },
+  build: {
+    outDir: 'build',
+  },
 })
