@@ -19,3 +19,4 @@ export default defineConfig({
     open: true, // open browser on server start
   },
 })
+// Path: vite.config.ts
