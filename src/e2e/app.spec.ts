@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { BANK_NAMES } from '../constants/names'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -55,7 +56,9 @@ test('has 1 power buttons', async ({ page }) => {
 })
 
 test('should start with the bank set to synthwave', async ({ page }) => {
-  await expect(page.getByText(/^Bank: Synthwave$/)).toBeVisible()
+  const pattern = `^Bank: ${BANK_NAMES.BANK1}$`
+  const regex = new RegExp(pattern)
+  await expect(page.getByText(regex)).toBeVisible()
 })
 
 test('should start with no sample displayed', async ({ page }) => {
