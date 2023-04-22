@@ -1,7 +1,8 @@
 import { useState, useEffect, PointerEvent } from 'react'
 import { LeftPanel, DrumPads } from './'
-import { synthwave, acoustic, chaosEngine, BANK_NAMES } from '../fixtures'
+import { synthwave, acoustic, chaosEngine } from '../fixtures'
 import { Howl, Howler } from 'howler'
+import { BANK_NAMES } from '../constants/names'
 
 export const MainBox = () => {
   const [currentSample, setCurrentSample] = useState('')
