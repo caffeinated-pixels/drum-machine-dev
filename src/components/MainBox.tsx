@@ -1,6 +1,6 @@
 import { useState, useEffect, PointerEvent } from 'react'
 import { LeftPanel, DrumPads } from './'
-import { synthwave, acoustic, chaosEngine } from '../fixtures'
+import { synthwave, acoustic, chaosEngine, BANK_NAMES } from '../fixtures'
 import { Howl, Howler } from 'howler'
 
 export const MainBox = () => {
@@ -39,13 +39,13 @@ export const MainBox = () => {
 
     if (target.id === 'bank1') {
       setSoundBank(synthwave)
-      setBankName('Synthwave')
+      setBankName(BANK_NAMES.BANK1)
     } else if (target.id === 'bank2') {
       setSoundBank(acoustic)
-      setBankName('Acoustic')
+      setBankName(BANK_NAMES.BANK2)
     } else if (target.id === 'bank3') {
       setSoundBank(chaosEngine)
-      setBankName('Chaos Engine')
+      setBankName(BANK_NAMES.BANK3)
     }
   }
 
