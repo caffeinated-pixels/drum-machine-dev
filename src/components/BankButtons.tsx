@@ -1,4 +1,5 @@
 import { MouseEventHandler } from 'react'
+import { BUTTON_NAMES } from '../constants/names'
 
 export const BankButtons = ({
   handleBankBtnClick,
@@ -8,13 +9,13 @@ export const BankButtons = ({
   return (
     <div className="btn-container">
       <button id="bank1" className="bank-btn" onClick={handleBankBtnClick}>
-        Bank 1
+        {BUTTON_NAMES.BANK1}
       </button>
       <button id="bank2" className="bank-btn" onClick={handleBankBtnClick}>
-        Bank 2
+        {BUTTON_NAMES.BANK2}
       </button>
       <button id="bank3" className="bank-btn" onClick={handleBankBtnClick}>
-        Bank 3
+        {BUTTON_NAMES.BANK3}
       </button>
     </div>
   )

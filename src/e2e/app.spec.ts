@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { BANK_NAMES } from '../constants/names'
+import { BANK_NAMES, BUTTON_NAMES, PAD_LABELS } from '../constants/names'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -14,37 +14,17 @@ test('has 9 drum pads', async ({ page }) => {
 })
 
 test('has 9 drum pads with correct text', async ({ page }) => {
-  await expect(
-    page.getByRole('button', { name: 'q', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'w', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'e', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'a', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 's', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'd', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'z', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'x', exact: true })
-  ).toBeVisible()
-  await expect(
-    page.getByRole('button', { name: 'c', exact: true })
-  ).toBeVisible()
+  const padLabels = Object.values(PAD_LABELS)
+
+  for (const label of padLabels) {
+    await expect(
+      page.getByRole('button', { name: label, exact: true })
+    ).toBeVisible()
+  }
 })
 
 test('has 3 bank buttons', async ({ page }) => {
-  await expect(page.getByRole('button', { name: 'bank' })).toHaveCount(3)
+  await expect(page.getByRole('button', { name: 'Bank' })).toHaveCount(3)
 })
 
 test('has 2 volume buttons', async ({ page }) => {
@@ -52,7 +32,9 @@ test('has 2 volume buttons', async ({ page }) => {
 })
 
 test('has 1 power buttons', async ({ page }) => {
-  await expect(page.getByRole('button', { name: 'On | Off' })).toHaveCount(1)
+  await expect(
+    page.getByRole('button', { name: BUTTON_NAMES.POWER })
+  ).toHaveCount(1)
 })
 
 test('should start with the bank set to synthwave', async ({ page }) => {
