@@ -2,8 +2,10 @@ import { test, expect } from '@playwright/test'
 import {
   BANK_NAMES,
   BUTTON_NAMES,
+  LINKS,
   PAD_LABELS,
   SCREEN_LABELS,
+  TOPBAR,
 } from '../constants/names'
 
 test.beforeEach(async ({ page }) => {
@@ -108,4 +110,95 @@ test.describe('Left panel button actions', () => {
     await volUpButton.click()
     await expect(page.getByText(`${SCREEN_LABELS.VOLUME}: 1`)).toBeVisible()
   })
+
+  test.describe('Power button', () => {
+    test('should toggle appearance when clicked', async ({ page }) => {
+      const powerButton = page.getByRole('button', {
+        name: BUTTON_NAMES.POWER,
+      })
+
+      await powerButton.click()
+      await expect(powerButton).toHaveClass('powbtn-off')
+      await powerButton.click()
+      await expect(powerButton).toHaveClass('powbtn-on')
+    })
+
+    test('should toggle display on and off', async ({ page }) => {
+      const powerButton = page.getByRole('button', {
+        name: BUTTON_NAMES.POWER,
+      })
+
+      const display = page.getByTestId('display')
+
+      await powerButton.click()
+      await expect(display).toBeEmpty()
+      await powerButton.click()
+      await expect(display).not.toBeEmpty()
+    })
+
+    test('should not reset bank and volume display', async ({ page }) => {
+      const powerButton = page.getByRole('button', {
+        name: BUTTON_NAMES.POWER,
+      })
+
+      const volDownButton = page.getByRole('button', {
+        name: BUTTON_NAMES.VOL_DOWN,
+      })
+      const bank3Button = page.getByRole('button', { name: BUTTON_NAMES.BANK3 })
+
+      await volDownButton.click()
+      await bank3Button.click()
+      await powerButton.click()
+      await powerButton.click()
+
+      await expect(page.getByText(`Bank: ${BANK_NAMES.BANK3}`)).toBeVisible()
+      page.getByText(`${SCREEN_LABELS.VOLUME}: 0.9`)
+    })
+  })
+
+  test.describe('top bar', () => {
+    test('should display correct text', async ({ page }) => {
+      const topBar = page.locator('.top-bar').filter({
+        hasText: `${TOPBAR.COMPANY_FIRST_WORD} ${TOPBAR.COMPANY_SECOND_WORD} ${TOPBAR.MODEL}`,
+      })
+      await expect(topBar).toBeVisible()
+    })
+
+    test('should display correct image', async ({ page }) => {
+      const topBar = page.locator('.top-bar')
+      const image = topBar.getByRole('img', {
+        name: TOPBAR.IMG_ALT,
+      })
+      await expect(image).toBeVisible()
+      await expect(image).toHaveAttribute('src', TOPBAR.IMG_SRC)
+    })
+  })
+
+  test.describe('bottom bar', () => {
+    test('should display correct text', async ({ page }) => {
+      const bottomBar = page.locator('.bottom-bar').filter({
+        hasText: 'Coded by Stevie Gill; repo',
+      })
+      await expect(bottomBar).toBeVisible()
+    })
+
+    test('should correctly link to my portfolio site', async ({ page }) => {
+      const link = page.getByRole('link', { name: 'Stevie Gill' })
+      await expect(link).toHaveAttribute('href', LINKS.PORTFOLIO)
+      await link.click()
+      await expect(page).toHaveURL(LINKS.PORTFOLIO)
+    })
+
+    test('should correctly link to my Github page', async ({ page }) => {
+      const link = page.getByRole('link', { name: 'repo' })
+      await expect(link).toHaveAttribute('href', LINKS.GITHUB)
+      await link.click()
+      await expect(page).toHaveURL(LINKS.GITHUB)
+    })
+  })
 })
+
+// TODO: test that audio plays when pad buttons are clicked
+// TODO: test that audio plays when keyboard buttons are pressed
+// TODO: test that buttons are disabled when power is off
+// TODO: snapshot test

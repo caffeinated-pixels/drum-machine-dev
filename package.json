@@ -36,7 +36,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
-    "test:snapshot": "npm run test -- --updateSnapshot",
+    "test:snapshot": "npm run test -u",
     "test:e2e": "npx playwright test",
     "check:lint": "eslint src --ext js,ts,tsx --fix",
     "check:type": "tsc -p tsconfig.json --noEmit",
