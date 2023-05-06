@@ -73,11 +73,11 @@
     "@vitejs/plugin-react": "^3.1.0",
     "c8": "^7.13.0",
     "husky": "^8.0.3",
-    "jsdom": "^21.1.0",
+    "jsdom": "^22.0.0",
     "lint-staged": "^13.1.2",
-    "vite": "^4.1.4",
+    "vite": "^4.3.5",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.5",
-    "vitest": "^0.29.8"
+    "vitest": "^0.31.0"
   }
 }
