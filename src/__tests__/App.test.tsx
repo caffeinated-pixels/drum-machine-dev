@@ -107,7 +107,7 @@ describe('display', () => {
   })
 
   // TODO: mock Howler to test audio & prevent console errors
-  it('should be display previous values when turned back on', async () => {
+  it('should display previous values when turned back on', async () => {
     render(<App />)
 
     const bank3Btn = screen.getByRole('button', { name: BUTTON_NAMES.BANK3 })
