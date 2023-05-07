@@ -1,14 +1,20 @@
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 import { App } from '../App'
+
 import {
   BANK_NAMES,
   BUTTON_NAMES,
   PAD_LABELS,
   SCREEN_LABELS,
 } from '../constants/names'
+
+// prevents a console error about these methods not being implemented
+window.HTMLMediaElement.prototype.play = () => Promise.resolve()
+window.HTMLMediaElement.prototype.load = vi.fn()
 
 describe('Drum machine app', () => {
   it('Matches DOM tree snapshot', () => {
