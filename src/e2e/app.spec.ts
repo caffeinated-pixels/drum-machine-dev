@@ -8,6 +8,8 @@ import {
   TOPBAR,
 } from '../constants/names'
 
+import { synthwave } from '../fixtures'
+
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
@@ -196,9 +198,21 @@ test.describe('Left panel button actions', () => {
       await expect(page).toHaveURL(LINKS.GITHUB)
     })
   })
+
+  test.describe('drum pads', () => {
+    test('should play audio when clicked', async ({ page }) => {
+      for (const sample of synthwave) {
+        const { key, name } = sample
+        const pad = page.getByRole('button', { name: key, exact: true })
+        await pad.click()
+        await expect(page.getByText(`Sample: ${name}`)).toBeVisible()
+      }
+    })
+  })
 })
 
 // TODO: test that audio plays when pad buttons are clicked
 // TODO: test that audio plays when keyboard buttons are pressed
 // TODO: test that buttons are disabled when power is off
 // TODO: snapshot test
+// TODO: reorganize tests
