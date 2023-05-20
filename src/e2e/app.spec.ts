@@ -8,7 +8,7 @@ import {
   TOPBAR,
 } from '../constants/names'
 
-import { synthwave } from '../fixtures'
+import { acoustic, chaosEngine, synthwave } from '../fixtures'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -200,8 +200,38 @@ test.describe('Left panel button actions', () => {
   })
 
   test.describe('drum pads', () => {
-    test('should play audio when clicked', async ({ page }) => {
+    test('should trigger each of the samples from bank 1', async ({ page }) => {
       for (const sample of synthwave) {
+        const { key, name } = sample
+        const pad = page.getByRole('button', { name: key, exact: true })
+        await pad.click()
+        await expect(page.getByText(`Sample: ${name}`)).toBeVisible()
+      }
+    })
+
+    test('should trigger each of the samples from bank 2', async ({ page }) => {
+      const bank2Button = page.getByRole('button', {
+        name: BUTTON_NAMES.BANK2,
+      })
+
+      await bank2Button.click()
+
+      for (const sample of acoustic) {
+        const { key, name } = sample
+        const pad = page.getByRole('button', { name: key, exact: true })
+        await pad.click()
+        await expect(page.getByText(`Sample: ${name}`)).toBeVisible()
+      }
+    })
+
+    test('should trigger each of the samples from bank 3', async ({ page }) => {
+      const bank3Button = page.getByRole('button', {
+        name: BUTTON_NAMES.BANK3,
+      })
+
+      await bank3Button.click()
+
+      for (const sample of chaosEngine) {
         const { key, name } = sample
         const pad = page.getByRole('button', { name: key, exact: true })
         await pad.click()
