@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite'
+
 import react from '@vitejs/plugin-react'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
 import svgrPlugin from 'vite-plugin-svgr'
@@ -14,6 +15,14 @@ export default defineConfig({
       reporter: ['text', 'html'],
       exclude: ['node_modules/'],
     },
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,playwright,tsup,build}.config.*',
+      '**/e2e/**', // prevent vitest from running playwright e2e tests
+    ],
   },
   server: {
     open: true, // open browser on server start

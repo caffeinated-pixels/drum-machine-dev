@@ -8,7 +8,8 @@ exports[`Drum machine app > Matches DOM tree snapshot 1`] = `
     className="top-bar"
   >
     <p>
-      Mercenary 
+      Mercenary
+       
       <span
         className="thin"
       >
