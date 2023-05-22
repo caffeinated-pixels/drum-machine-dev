@@ -15,6 +15,11 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Initial state', () => {
+  test('should match snapshot', async ({ page }) => {
+    const screenshot = await page.screenshot()
+    expect(screenshot).toMatchSnapshot()
+  })
+
   test('has title', async ({ page }) => {
     await expect(page).toHaveTitle(/Drum Machine/)
   })
@@ -238,11 +243,18 @@ test.describe('Left panel button actions', () => {
         await expect(page.getByText(`Sample: ${name}`)).toBeVisible()
       }
     })
+
+    test('should be triggered by keyboard', async ({ page }) => {
+      for (const sample of synthwave) {
+        const { key, name } = sample
+        await page.keyboard.press(key)
+        await expect(page.getByText(`Sample: ${name}`)).toBeVisible()
+      }
+    })
   })
 })
 
 // TODO: test that audio plays when pad buttons are clicked
-// TODO: test that audio plays when keyboard buttons are pressed
 // TODO: test that buttons are disabled when power is off
 // TODO: snapshot test
 // TODO: reorganize tests
