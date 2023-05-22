@@ -253,8 +253,3 @@ test.describe('Left panel button actions', () => {
     })
   })
 })
-
-// TODO: test that audio plays when pad buttons are clicked
-// TODO: test that buttons are disabled when power is off
-// TODO: snapshot test
-// TODO: reorganize tests
